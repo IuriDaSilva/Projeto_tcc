@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE php>
+<php lang="pt-br">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -52,7 +52,7 @@
 					<label for="UserPassword" class="bmd-label-floating"><i class="fas fa-key"></i> &nbsp; Repita a senha</label>
 					<input type="password" class="form-control" id="UserPassword" name="clave" maxlength="200">
 				</div>
-                <a href="index.html" class="btn-login text-center">Enviar</a>
+                <a href="index.php" class="btn-login text-center">Enviar</a>
 			</form>
 		</div>
 	</div>
@@ -79,4 +79,4 @@
 
 	<script src="./js/main.js" ></script>
 </body>
-</html>
+</php>

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE php>
+<php lang="pt-br">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -52,20 +52,20 @@
 				<nav class="full-box nav-lateral-menu">
 					<ul>
 						<li>
-							<a href="../home.html"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Iníco</a>
+							<a href="../home.php"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Iníco</a>
 						</li>
 
 						<li>
 							<a href="#" class="nav-btn-submenu"><i class="fas fa-users fa-fw"></i> &nbsp; Usuarios <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="user-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Novo usuario</a>
+									<a href="user-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Novo usuario</a>
 								</li>
 								<li>
-									<a href="user-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a>
+									<a href="user-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a>
 								</li>
 								<li>
-									<a href="user-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a>
+									<a href="user-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a>
 								</li>
 							</ul>
 						</li>
@@ -74,13 +74,13 @@
 							<a href="#" class="nav-btn-submenu"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Salas <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="item-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova sala</a>
+									<a href="item-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova sala</a>
 								</li>
 								<li>
-									<a href="item-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de salas</a>
+									<a href="item-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de salas</a>
 								</li>
 								<li>
-									<a href="item-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar salas</a>
+									<a href="item-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar salas</a>
 								</li>
 							</ul>
 						</li>
@@ -89,22 +89,22 @@
 							<a href="#" class="nav-btn-submenu"><i class="far fa-address-card fa-fw"></i> &nbsp; Reservas <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="reservation-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
+									<a href="reservation-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
 								</li>
 								<li>
-									<a href="reservation-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
+									<a href="reservation-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
 								</li>
 								<li>
-									<a href="reservation-search.html"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar reservas</a>
+									<a href="reservation-search.php"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar reservas</a>
 								</li>
 								<li>
-									<a href="reservation-pending.html"><i class="far fa-id-card"></i> &nbsp; Reservas pendentes</a>
+									<a href="reservation-pending.php"><i class="far fa-id-card"></i> &nbsp; Reservas pendentes</a>
 								</li>
 							</ul>
 						</li>
 
 						<li>
-							<a href="company.html"><i class="fas fa-info-circle"></i> &nbsp; Informações</a>
+							<a href="company.php"><i class="fas fa-info-circle"></i> &nbsp; Informações</a>
 						</li>
 					</ul>
 				</nav>
@@ -117,7 +117,7 @@
 				<a href="#" class="float-left show-nav-lateral">
 					<i class="fas fa-exchange-alt"></i>
 				</a>
-				<a href="user-update.html">
+				<a href="user-update.php">
 					<i class="fas fa-user-cog"></i>
 				</a>
 				<a href="#" class="btn-exit-system">
@@ -138,13 +138,13 @@
 			<div class="container-fluid">
 				<ul class="full-box list-unstyled page-nav-tabs">
 					<li>
-						<a href="user-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; NOVO USUÁRIO</a>
+						<a href="user-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; NOVO USUÁRIO</a>
 					</li>
 					<li>
-						<a class="active" href="user-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE USUÁRIOS</a>
+						<a class="active" href="user-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE USUÁRIOS</a>
 					</li>
 					<li>
-						<a href="user-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR USUÁRIOS</a>
+						<a href="user-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR USUÁRIOS</a>
 					</li>
 				</ul>	
 			</div>
@@ -176,7 +176,7 @@
 								<th>Rua A,220,Rio de janeiro.</th>
 								<th>maria@email.com</th>
 								<td>
-									<a href="user-update.html" class="btn btn-success">
+									<a href="user-update.php" class="btn btn-success">
 	  									<i class="fas fa-sync-alt"></i>	
 									</a>
 								</td>
@@ -197,7 +197,7 @@
 								<th>Rua C,110,Rio de janeiro.</th>
 								<th>pedro@email.com</th>
 								<td>
-									<a href="user-update.html" class="btn btn-success">
+									<a href="user-update.php" class="btn btn-success">
 	  									<i class="fas fa-sync-alt"></i>	
 									</a>
 								</td>
@@ -218,7 +218,7 @@
 								<th>Rua B,800,Rio de janeiro.</th>
 								<th>camila@email.com</th>
 								<td>
-									<a href="user-update.html" class="btn btn-success">
+									<a href="user-update.php" class="btn btn-success">
 	  									<i class="fas fa-sync-alt"></i>	
 									</a>
 								</td>
@@ -239,7 +239,7 @@
 								<th>Rua D,450,Rio de janeiro.</th>
 								<th>bruno@email.com</th>
 								<td>
-									<a href="user-update.html" class="btn btn-success">
+									<a href="user-update.php" class="btn btn-success">
 	  									<i class="fas fa-sync-alt"></i>	
 									</a>
 								</td>
@@ -294,4 +294,4 @@
 
 	<script src="../js/main.js" ></script>
 </body>
-</html>
+</php>

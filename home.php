@@ -50,20 +50,20 @@
 				<nav class="full-box nav-lateral-menu">
 					<ul>
 						<li>
-							<a href="home.html"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Início</a>
+							<a href="home.php"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Início</a>
 						</li>
 
 						<li>
 							<a href="#" class="nav-btn-submenu"><i class="fas fa-users fa-fw"></i> &nbsp; Usuarios <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="user/user-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Novo usuario</a>
+									<a href="user/user-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Novo usuario</a>
 								</li>
 								<li>
-									<a href="user/user-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a>
+									<a href="user/user-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a>
 								</li>
 								<li>
-									<a href="user/user-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a>
+									<a href="user/user-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a>
 								</li>
 							</ul>
 						</li>
@@ -72,13 +72,13 @@
 							<a href="#" class="nav-btn-submenu"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Salas <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="sala/sala-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova sala</a>
+									<a href="sala/sala-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova sala</a>
 								</li>
 								<li>
-									<a href="sala/sala-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de salas</a>
+									<a href="sala/sala-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de salas</a>
 								</li>
 								<li>
-									<a href="sala/sala-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar salas</a>
+									<a href="sala/sala-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar salas</a>
 								</li>
 							</ul>
 						</li>
@@ -87,22 +87,22 @@
 							<a href="#" class="nav-btn-submenu"><i class="far fa-address-card fa-fw"></i> &nbsp; Reservas <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="reserva/reserva-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
+									<a href="reserva/reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
 								</li>
 								<li>
-									<a href="reserva/reserva-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
+									<a href="reserva/reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
 								</li>
 								<li>
-									<a href="reserva/reserva-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar reservas</a>
+									<a href="reserva/reserva-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar reservas</a>
 								</li>
 								<li>
-									<a href="reserva/reserva-pend.html"><i class="far fa-id-card"></i> &nbsp; Reservas pendentes</a>
+									<a href="reserva/reserva-pend.php"><i class="far fa-id-card"></i> &nbsp; Reservas pendentes</a>
 								</li>
 							</ul>
 						</li>
 
 						<li>
-							<a href="company.html"><i class="fas fa-info-circle"></i> &nbsp; Informações</a>
+							<a href="company.php"><i class="fas fa-info-circle"></i> &nbsp; Informações</a>
 						</li>
 					</ul>
 				</nav>
@@ -115,7 +115,7 @@
 				<a href="#" class="float-left show-nav-lateral">
 					<i class="fas fa-exchange-alt"></i>
 				</a>
-				<a href="user/user-update.html">
+				<a href="user/user-update.php">
 					<i class="fas fa-user-cog"></i>
 				</a>
 				<a href="#" class="btn-exit-system">
@@ -136,7 +136,7 @@
 			<!-- Content -->
 			<div class="full-box tile-container">
 
-				<a href="user/user-new.html" class="tile">
+				<a href="user/user-new.php" class="tile">
 					<div class="tile-tittle">Usuarios</div>
 					<div class="tile-icon">
 						<i class="fas fa-users fa-fw"></i>
@@ -144,7 +144,7 @@
 					</div>
 				</a>
 
-				<a href="sala/sala-new.html" class="tile">
+				<a href="sala/sala-new.php" class="tile">
 					<div class="tile-tittle">Salas</div>
 					<div class="tile-icon">
 						<i class="fas fa-store-alt fa-fw"></i>
@@ -152,7 +152,7 @@
 					</div>
 				</a>
 
-				<a href="reserva/reserva-list.html" class="tile">
+				<a href="reserva/reserva-list.php" class="tile">
 					<div class="tile-tittle">Reservas</div>
 					<div class="tile-icon">
 						<i class="far fa-address-card fa-fw"></i>
@@ -160,7 +160,7 @@
 					</div>
 				</a>
 
-				<a href="company.html" class="tile">
+				<a href="company.php" class="tile">
 					<div class="tile-tittle">Informações</div>
 					<div class="tile-icon">
 						<i class="fas fa-info-circle"></i>

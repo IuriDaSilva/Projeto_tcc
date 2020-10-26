@@ -49,10 +49,10 @@
 					<input type="password" class="form-control" id="UserPassword" name="clave" maxlength="200">
 				</div>
 				
-				<a href="home.html" class="btn-login text-center">Entrar</a>
+				<a href="home.php" class="btn-login text-center">Entrar</a>
 				<br>
 				<p class="text-center">
-				<a href="senha.html" >Esqueceu a senha?</a>
+				<a href="senha.php" >Esqueceu a senha?</a>
 				</p>
 			</form>
 		</div>

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE php>
+<php lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -36,7 +36,7 @@
 <body>
     <!-- Main container -->
     <main class="full-box main-container">
-         <!-- Nav lateral -->
+        <!-- Nav lateral -->
 		<section class="full-box nav-lateral">
 			<div class="full-box nav-lateral-bg show-nav-lateral"></div>
 			<div class="full-box nav-lateral-content">
@@ -51,20 +51,20 @@
 				<nav class="full-box nav-lateral-menu">
 					<ul>
 						<li>
-							<a href="../home.html"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Início</a>
+							<a href="../home.php"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Início</a>
 						</li>
 
 						<li>
 							<a href="#" class="nav-btn-submenu"><i class="fas fa-users fa-fw"></i> &nbsp; Usuarios <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="../user/user-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Novo usuario</a>
+									<a href="../user/user-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Novo usuario</a>
 								</li>
 								<li>
-									<a href="../user/user-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a>
+									<a href="../user/user-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a>
 								</li>
 								<li>
-									<a href="../user/user-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a>
+									<a href="../user/user-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a>
 								</li>
 							</ul>
 						</li>
@@ -73,13 +73,13 @@
 							<a href="#" class="nav-btn-submenu"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Salas <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="sala-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova sala</a>
+									<a href="../sala/sala-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova sala</a>
 								</li>
 								<li>
-									<a href="sala-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de salas</a>
+									<a href="../sala/sala-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de salas</a>
 								</li>
 								<li>
-									<a href="sala-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar salas</a>
+									<a href="../sala/sala-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar salas</a>
 								</li>
 							</ul>
 						</li>
@@ -88,22 +88,22 @@
 							<a href="#" class="nav-btn-submenu"><i class="far fa-address-card fa-fw"></i> &nbsp; Reservas <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="../reserva/reserva-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
+									<a href="reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
 								</li>
 								<li>
-									<a href="../reserva/reserva-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
+									<a href="reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
 								</li>
 								<li>
-									<a href="../reserva/reserva-search.html"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar reservas</a>
+									<a href="reserva-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar reservas</a>
 								</li>
 								<li>
-									<a href="../reserva/reserva-pend.html"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Reservas pendentes</a>
+									<a href="reserva-pend.php"><i class="far fa-id-card"></i> &nbsp; Reservas pendentes</a>
 								</li>
 							</ul>
 						</li>
 
 						<li>
-							<a href="../company.html"><i class="fas fa-info-circle"></i> &nbsp; Informações</a>
+							<a href="../company.php"><i class="fas fa-info-circle"></i> &nbsp; Informações</a>
 						</li>
 					</ul>
 				</nav>
@@ -114,7 +114,7 @@
                 <a href="#" class="float-left show-nav-lateral">
                     <i class="fas fa-exchange-alt"></i>
                 </a>
-                <a href="user/user-update.html">
+                <a href="../user/user-update.php">
                     <i class="fas fa-user-cog"></i>
                 </a>
                 <a href="#" class="btn-exit-system">
@@ -124,36 +124,41 @@
             <!-- Page header -->
             <div class="full-box page-header">
                 <h3 class="text-left">
-                    <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE SALAS
+                    <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE RESERVAS
                 </h3>
                 <p class="text-justify">
-
                 </p>
             </div>
             <div class="container-fluid">
                 <ul class="full-box list-unstyled page-nav-tabs">
                     <li>
-                        <a href="sala-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; NOVA SALA</a>
+                        <a href="reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; NOVA RESERVA</a>
                     </li>
                     <li>
-                        <a class="active" href="sala-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE SALAS</a>
+                        <a class="active" href="reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE RESERVAS</a>
                     </li>
                     <li>
-                        <a href="sala-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR SALA</a>
+                        <a href="reserva-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR RESERVA</a>
+                    </li>
+                    <li>
+                        <a href="reserva-pend.php"><i class="far fa-id-card"></i> &nbsp; RESERVAS PENDENTES</a>
                     </li>
                 </ul>
             </div>
             
             <!--CONTENT-->
-           <div class="container-fluid">
+            
+			 <div class="container-fluid">
 				<div class="table-responsive">
 					<table class="table table-dark table-sm">
 						<thead>
 							<tr class="text-center roboto-medium">
 								<th>#</th>
-								<th>CÓDIGO</th>
-								<th>NOME</th>
-								<th>TIPO</th>
+								<th>USUÁRIO</th>
+								<th>DATA DA RESERVA</th>
+								<th>HORA DA RESERVA</th>
+								<th>HORA DA ENTREGA</th>
+								<th>ESTADO</th>
 								<th>EDITAR</th>
 								<th>EXCLUIR</th>
 							</tr>
@@ -161,75 +166,83 @@
 						<tbody>
 							<tr class="text-center" >
 								<td>1</td>
-								<td>1001</td>
-								<td>AUDI 1</td>
-								<td>AUDITÓRIO</td>
+								<td>Maria Souza</td>
+								<td>10/8/2020</td>
+								<td>10:00</td>
+								<td>12:00</td>
+								<td>Finalizada</td>
 								<td>
-                                    <a href="sala-update.html" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
+									<a href="reserva-update.php" class="btn btn-success">
+	  									<i class="fas fa-sync-alt"></i>	
+									</a>
+								</td>
+								<td>
+									<form action="">
+										<button type="button" class="btn btn-warning">
+		  									<i class="far fa-trash-alt"></i>
+										</button>
+									</form>
+								</td>
 							</tr>
 							<tr class="text-center" >
 								<td>2</td>
-								<td>1002</td>
-								<td>AUDI 2</td>
-								<td>AUDITÓRIO</td>
+								<td>Camila Santos</td>
+								<td>19/9/2020</td>
+								<td>09:00</td>
+								<td>11:00</td>
+								<td>Finalizada</td>
 								<td>
-                                    <a href="sala-update.html" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
+									<a href="reserva-update.php" class="btn btn-success">
+	  									<i class="fas fa-sync-alt"></i>	
+									</a>
+								</td>
+								<td>
+									<form action="">
+										<button type="button" class="btn btn-warning">
+		  									<i class="far fa-trash-alt"></i>
+										</button>
+									</form>
+								</td>
 							</tr>
 							<tr class="text-center" >
 								<td>3</td>
-								<td>2001</td>
-								<td>LAB 1</td>
-								<td>LABORATÓRIO</td>
+								<td>Bruno Fontes</td>
+								<td>25/10/2020</td>
+								<td>13:00</td>
+								<td>15:00</td>
+								<td>Pendente</td>
 								<td>
-                                    <a href="sala-update.html" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
+									<a href="reserva-update.php" class="btn btn-success">
+	  									<i class="fas fa-sync-alt"></i>	
+									</a>
+								</td>
+								<td>
+									<form action="">
+										<button type="button" class="btn btn-warning">
+		  									<i class="far fa-trash-alt"></i>
+										</button>
+									</form>
+								</td>
 							</tr>
 							<tr class="text-center" >
 								<td>4</td>
-								<td>2002</td>
-								<td>LAB 2</td>
-								<td>LABORATÓRIO</td>
+								<td>Pedro Silva</td>
+								<td>30/10/2020</td>
+								<td>14:00</td>
+								<td>16:00</td>
+								<td>Pendente</td>
 								<td>
-                                    <a href="sala-update.html" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
+									<a href="reserva-update.php" class="btn btn-success">
+	  									<i class="fas fa-sync-alt"></i>	
+									</a>
+								</td>
+								<td>
+									<form action="">
+										<button type="button" class="btn btn-warning">
+		  									<i class="far fa-trash-alt"></i>
+										</button>
+									</form>
+								</td>
 							</tr>
 						</tbody>
 					</table>
@@ -249,10 +262,6 @@
 				</nav>
 			</div>
         </section>
-
-
-
-
     </main>
     
     	
@@ -277,4 +286,4 @@
 
 	<script src="../js/main.js" ></script>
 </body>
-</html>
+</php>

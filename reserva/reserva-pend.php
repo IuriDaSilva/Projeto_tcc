@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE php>
+<php lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -36,7 +36,7 @@
 <body>
     <!-- Main container -->
     <main class="full-box main-container">
-         <!--Barra lateral -->
+        <!-- Nav lateral -->
 		<section class="full-box nav-lateral">
 			<div class="full-box nav-lateral-bg show-nav-lateral"></div>
 			<div class="full-box nav-lateral-content">
@@ -51,20 +51,20 @@
 				<nav class="full-box nav-lateral-menu">
 					<ul>
 						<li>
-							<a href="../home.html"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Início</a>
+							<a href="../home.php"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Início</a>
 						</li>
 
 						<li>
 							<a href="#" class="nav-btn-submenu"><i class="fas fa-users fa-fw"></i> &nbsp; Usuarios <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="../user/user-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Novo usuario</a>
+									<a href="../user/user-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Novo usuario</a>
 								</li>
 								<li>
-									<a href="../user/user-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a>
+									<a href="../user/user-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a>
 								</li>
 								<li>
-									<a href="../user/user-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a>
+									<a href="../user/user-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a>
 								</li>
 							</ul>
 						</li>
@@ -73,13 +73,13 @@
 							<a href="#" class="nav-btn-submenu"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Salas <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="sala-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova sala</a>
+									<a href="../sala/sala-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova sala</a>
 								</li>
 								<li>
-									<a href="sala-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de salas</a>
+									<a href="../sala/sala-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de salas</a>
 								</li>
 								<li>
-									<a href="sala-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar salas</a>
+									<a href="../sala/sala-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar salas</a>
 								</li>
 							</ul>
 						</li>
@@ -88,113 +88,143 @@
 							<a href="#" class="nav-btn-submenu"><i class="far fa-address-card fa-fw"></i> &nbsp; Reservas <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="../reserva/reserva-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
+									<a href="reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
 								</li>
 								<li>
-									<a href="../reserva/reserva-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
+									<a href="reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
 								</li>
 								<li>
-									<a href="../reserva/reserva-search.html"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar reservas</a>
+									<a href="reserva-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar reservas</a>
 								</li>
 								<li>
-									<a href="../reserva/reserva-pend.html"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Reservas pendentes</a>
+									<a href="reserva-pend.php"><i class="far fa-id-card"></i> &nbsp; Reservas pendentes</a>
 								</li>
 							</ul>
 						</li>
 
 						<li>
-							<a href="../company.html"><i class="fas fa-info-circle"></i> &nbsp; Informações</a>
+							<a href="../company.php"><i class="fas fa-info-circle"></i> &nbsp; Informações</a>
 						</li>
 					</ul>
 				</nav>
 			</div>
-		</section>
-		<!--Botões superiores-->
+        </section>
         <section class="full-box page-content">
             <nav class="full-box navbar-info">
                 <a href="#" class="float-left show-nav-lateral">
                     <i class="fas fa-exchange-alt"></i>
                 </a>
-                <a href="user/user-update.html">
+                <a href="user-update.php">
                     <i class="fas fa-user-cog"></i>
                 </a>
                 <a href="#" class="btn-exit-system">
                     <i class="fas fa-power-off"></i>
                 </a>
             </nav>
-             <!-- Abas de decrição -->
+            <!-- Page header -->
             <div class="full-box page-header">
                 <h3 class="text-left">
-                    <i class="fas fa-plus fa-fw"></i> &nbsp; NOVA SALA
+                    <i class="far fa-id-card"></i> &nbsp; RESERVAS PENDENTES
                 </h3>
                 <p class="text-justify">
-                
                 </p>
             </div>
-            <div class="container-fluid">
+			<div class="container-fluid">
                 <ul class="full-box list-unstyled page-nav-tabs">
                     <li>
-                        <a class="active" href="sala-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; NOVA SALA</a>
+                        <a  href="reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; NOVA RESERVA</a>
                     </li>
                     <li>
-                        <a href="sala-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE SALAS</a>
+                        <a  href="reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE RESERVAS</a>
                     </li>
                     <li>
-                        <a href="sala-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR SALAS</a>
+                        <a href="reserva-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR RESERVA</a>
+                    </li>
+                    <li>
+                        <a class="active" href="reserva-pend.php"><i class="far fa-id-card"></i> &nbsp; RESERVAS PENDENTES</a>
                     </li>
                 </ul>
             </div>
             
-            <!--Conteúdo principal-->
-            <div class="container-fluid">
-				<form action="" class="form-neon" autocomplete="off">
-					<fieldset>
-						<legend><i class="far fa-plus-square"></i> &nbsp; Informação da sala</legend>
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-12 col-md-6">
-									<div class="form-group">
-										<label for="sala_codigo" class="bmd-label-floating">Códido</label>
-										<input type="text"  class="form-control" name="sala_codigo" id="sala_codigo" maxlength="45">
-									</div>
-								</div>
-								
-								<div class="col-24 col-md-6">
-									<div class="form-group">
-										<label for="sala_nome" class="bmd-label-floating">Nome</label>
-										<input type="text"  class="form-control" name="sala_nome" id="sala_nome" maxlength="140">
-									</div>
-								</div>
-								<div class="col-12 col-md-6">
-									<div class="form-group">
-										<label for="sala_tipo" class="bmd-label-floating">Tipo</label>
-										<select class="form-control" name="sala_tipo" id="sala_tipo">
-											<option value="" selected="" disabled="">Selecione uma opção</option>
-											<option value="Habilitado">Laboratório</option>
-											<option value="Deshabilitado">Auditório</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-12 col-md-6">
-									<div class="form-group">
-										<label for="sala_descricao" class="bmd-label-floating">Descrição</label>
-										<input type="text"  class="form-control" name="sala_descricao" id="sala_descricao" maxlength="190">
-									</div>
-								</div>
-							</div>
-						</div>
-					</fieldset>
-					<br><br><br>
-					<p class="text-center" style="margin-top: 40px;">
-						<button type="reset" class="btn btn-raised btn-secondary btn-sm"><i class="fas fa-paint-roller"></i> &nbsp; APAGAR</button>
-						&nbsp; &nbsp;
-						<button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp; SALVAR</button>
-					</p>
-				</form>
+            <!--CONTENT-->
+            
+			<div class="container-fluid">
+				<div class="table-responsive">
+					<table class="table table-dark table-sm">
+						<thead>
+							<tr class="text-center roboto-medium">
+								<th>#</th>
+								<th>USUÁRIO</th>
+								<th>DATA DA RESERVA</th>
+								<th>HORA DA RESERVA</th>
+								<th>HORA DA ENTREGA</th>
+								<th>ESTADO</th>
+								<th>EDITAR</th>
+								<th>EXCLUIR</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="text-center" >
+								<td>1</td>
+								<td>Bruno Fontes</td>
+								<td>25/10/2020</td>
+								<td>13:00</td>
+								<td>15:00</td>
+								<td>Pendente</td>
+								<td>
+									<a href="reserva-update.php" class="btn btn-success">
+	  									<i class="fas fa-sync-alt"></i>	
+									</a>
+								</td>
+								<td>
+									<form action="">
+										<button type="button" class="btn btn-warning">
+		  									<i class="far fa-trash-alt"></i>
+										</button>
+									</form>
+								</td>
+							</tr>
+							<tr class="text-center" >
+								<td>2</td>
+								<td>Pedro Silva</td>
+								<td>30/10/2020</td>
+								<td>14:00</td>
+								<td>16:00</td>
+								<td>Pendente</td>
+								<td>
+									<a href="reserva-update.php" class="btn btn-success">
+	  									<i class="fas fa-sync-alt"></i>	
+									</a>
+								</td>
+								<td>
+									<form action="">
+										<button type="button" class="btn btn-warning">
+		  									<i class="far fa-trash-alt"></i>
+										</button>
+									</form>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<nav aria-label="Page navigation example">
+					<ul class="pagination justify-content-center">
+						<li class="page-item disabled">
+							<a class="page-link" href="#" tabindex="-1">Anterior</a>
+						</li>
+						<li class="page-item"><a class="page-link" href="#">1</a></li>
+						<li class="page-item"><a class="page-link" href="#">2</a></li>
+						<li class="page-item"><a class="page-link" href="#">3</a></li>
+						<li class="page-item">
+							<a class="page-link" href="#">Proximo</a>
+						</li>
+					</ul>
+				</nav>
 			</div>
         </section>
     </main>
     
+    	
 	<!--=============================================
 	=            Include JavaScript files           =
 	==============================================-->
@@ -216,4 +246,4 @@
 
 	<script src="../js/main.js" ></script>
 </body>
-</html>
+</php>
