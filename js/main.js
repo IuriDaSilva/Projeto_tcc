@@ -44,7 +44,7 @@ $(document).ready(function(){
 			cancelButtonText: 'Não, cancelar'
 		}).then((result) => {
 			if (result.value) {
-				window.location="index.html";
+				window.location="index.php";
 			}
 		});
 	});

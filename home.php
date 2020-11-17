@@ -126,7 +126,7 @@
 			<!-- Page header -->
 			<div class="full-box page-header">
 				<h3 class="text-left">
-					<i class="fab fa-dashcube fa-fw"></i> &nbsp; Iníco
+					<i class="fab fa-dashcube fa-fw"></i> &nbsp; Início
 				</h3>
 				<p class="text-justify">
 					Escolha uma das funcionalidades que deseja utilizar.
