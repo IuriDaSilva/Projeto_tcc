@@ -179,7 +179,7 @@ session_start();
 					}
 				?>
 				<div class="container-fluid">
-					<form method="POST" action="" class="form-neon" autocomplete="off">
+					<form method="POST" action="" name="NewUsuario"class="form-neon" autocomplete="off">
 					
 						<fieldset>
 							<legend><i class="far fa-address-card"></i> &nbsp; Preencha os dados do usuário</legend>

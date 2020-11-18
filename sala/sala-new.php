@@ -1,5 +1,9 @@
-<!DOCTYPE php>
-<php lang="pt-br">
+<?php
+session_start();
+?>
+<!DOCTYPE HTML>
+<html lang="pt-br">
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -145,9 +149,32 @@
                 </ul>
             </div>
             
-            <!--Conteúdo principal-->
+			<!--Conteúdo principal-->
+			<?php
+					require '../classes/Conexao.php';
+					require '../classes/Sala.php';
+
+					$formDados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+					//var_dump($formDados);
+
+					if (!empty($formDados['NewSala'])) {
+						$cadSala = new Sala();
+						$cadSala->formDados = $formDados;
+						$valor = $cadSala->cadastrar();
+						var_dump($valor);
+						if ($valor) {
+							echo 'Usuário cadastrado com sucesso!';
+							//$_SESSION['msg'] = "<p style='color: green;'> Conta a pagar cadastrada com sucesso! </p>";
+							//header("../user/user-new.php");
+						} else {
+							echo 'Usuário não cadastrado com sucesso!';
+							//$_SESSION['msg'] = "<p style='color: #ff0000;'> Erro: Conta a pagar não cadastrada com sucesso! </p>";
+							//header("../user/user-new.php");
+						}
+					}
+				?>
             <div class="container-fluid">
-				<form action="" class="form-neon" autocomplete="off">
+				<form method="POST" action="" class="form-neon" autocomplete="off">
 					<fieldset>
 						<legend><i class="far fa-plus-square"></i> &nbsp; Informação da sala</legend>
 						<div class="container-fluid">
@@ -170,8 +197,8 @@
 										<label for="sala_tipo" class="bmd-label-floating">Tipo</label>
 										<select class="form-control" name="sala_tipo" id="sala_tipo">
 											<option value="" selected="" disabled="">Selecione uma opção</option>
-											<option value="Habilitado">Laboratório</option>
-											<option value="Deshabilitado">Auditório</option>
+											<option value="Laboratório">Laboratório</option>
+											<option value="Auditório">Auditório</option>
 										</select>
 									</div>
 								</div>
@@ -188,7 +215,7 @@
 					<p class="text-center" style="margin-top: 40px;">
 						<button type="reset" class="btn btn-raised btn-secondary btn-sm"><i class="fas fa-paint-roller"></i> &nbsp; APAGAR</button>
 						&nbsp; &nbsp;
-						<button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp; SALVAR</button>
+						<button type="submit" class="btn btn-raised btn-info btn-sm" value="Cadastrar" name="NewSala"><i class="far fa-save"></i> &nbsp; SALVAR</button>
 					</p>
 				</form>
 			</div>
@@ -216,4 +243,4 @@
 
 	<script src="../js/main.js" ></script>
 </body>
-</php>
+</html>

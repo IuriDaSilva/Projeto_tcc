@@ -3,7 +3,7 @@
 class Usuario extends Conexao
 
 {
-
+    public int $id;
     public array $formUsuario;
     public object $conn;
 
@@ -22,7 +22,7 @@ class Usuario extends Conexao
     }
     public function visualizar(): array {
         $this->conn = $this->connect();
-        $query_usuario = "SELECT id, matricula, nome, cpf, telefone, email, endereco, cargo, nome_usuario
+        $query_usuario = "SELECT id, matricula, nome, cpf, telefone, email, endereco, cargo, nome_usuario, senha
                 FROM usuario
                 WHERE id =:id
                 LIMIT 1";
@@ -66,32 +66,31 @@ class Usuario extends Conexao
     //Editar usuarios 
     public function editar() : bool {
         $this->conn = $this->connect();
-        
-        $query_usuario = "UPDATE usuario
-                SET matricula=:matricula, nome=:nome, cpf=:cpf, telefone=:telefone, endereco=:endereco,
-                 nome_usuario=:nome_usuario, email=:email, senha=:senha, cargo=:cargo
+        //var_dump($this->formDados);
+        $query_edit_usuario = "UPDATE usuario
+                SET matricula=:matricula, nome=:nome, cpf=:cpf, telefone=:telefone, email=:email, endereco=:endereco, cargo=:cargo, nome_usuario=:nome_usuario, senha=:senha
                 WHERE id=:id";
 
-        $edit_usuario = $this->conn->prepare($query_usuario);
+        $edit_usuario = $this->conn->prepare($query_edit_usuario);
        
         $edit_usuario->bindParam(':matricula', $this->formDados['usuario_mat'], PDO::PARAM_STR);
         $edit_usuario->bindParam(':nome', $this->formDados['usuario_nome'], PDO::PARAM_STR);
         $edit_usuario->bindParam(':cpf', $this->formDados['usuario_cpf'], PDO::PARAM_STR);
         $edit_usuario->bindParam(':telefone', $this->formDados['usuario_telefone'], PDO::PARAM_STR);
-        $edit_usuario->bindParam(':endereco', $this->formDados['usuario_endereco'], PDO::PARAM_STR);
-        $edit_usuario->bindParam(':nome_usuario', $this->formDados['usuario_usuario'], PDO::PARAM_STR);
         $edit_usuario->bindParam(':email', $this->formDados['usuario_email'], PDO::PARAM_STR);
-        $edit_usuario->bindParam(':senha', $this->formDados['usuario_senha_1'], PDO::PARAM_INT);
+        $edit_usuario->bindParam(':endereco', $this->formDados['usuario_endereco'], PDO::PARAM_STR);
         $edit_usuario->bindParam(':cargo', $this->formDados['usuario_cargo'], PDO::PARAM_STR);
+        $edit_usuario->bindParam(':nome_usuario', $this->formDados['usuario_usuario'], PDO::PARAM_STR);
+        $edit_usuario->bindParam(':senha', $this->formDados['usuario_senha_1'], PDO::PARAM_INT);
         $edit_usuario->bindParam(':id', $this->formDados['id'], PDO::PARAM_INT);
 
         $edit_usuario->execute();
-        
+       
         if($edit_usuario->rowCount()){
             return true;
         }else{
             return false;
-        }        
+        }     
     }
 
     //Apagar usuarios

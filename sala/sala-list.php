@@ -150,7 +150,7 @@
 					<table class="table table-dark table-sm">
 						<thead>
 							<tr class="text-center roboto-medium">
-								<th>#</th>
+								<th>ID</th>
 								<th>CÓDIGO</th>
 								<th>NOME</th>
 								<th>TIPO</th>
@@ -159,78 +159,34 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="text-center" >
-								<td>1</td>
-								<td>1001</td>
-								<td>AUDI 1</td>
-								<td>AUDITÓRIO</td>
-								<td>
-                                    <a href="sala-update.php" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
-							</tr>
-							<tr class="text-center" >
-								<td>2</td>
-								<td>1002</td>
-								<td>AUDI 2</td>
-								<td>AUDITÓRIO</td>
-								<td>
-                                    <a href="sala-update.php" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
-							</tr>
-							<tr class="text-center" >
-								<td>3</td>
-								<td>2001</td>
-								<td>LAB 1</td>
-								<td>LABORATÓRIO</td>
-								<td>
-                                    <a href="sala-update.php" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
-							</tr>
-							<tr class="text-center" >
-								<td>4</td>
-								<td>2002</td>
-								<td>LAB 2</td>
-								<td>LABORATÓRIO</td>
-								<td>
-                                    <a href="sala-update.php" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
-							</tr>
+						<?php
+								require '../classes/Conexao.php';
+								require '../classes/Sala.php';
+								$listSala = new Sala();
+								$list_sala_pgs = $listSala->listar();
+								//var_dump($list_sala_pgs);
+
+								foreach ($list_sala_pgs as $row_sala) {
+									extract($row_sala);?>
+									<tr class="text-center" >
+									<th><?php echo $row_sala['id']; ?></th>
+									<td><?php echo $row_sala['codigo']; ?></td>
+									<td><?php echo $row_sala['nome']; ?></td>
+									<td><?php echo $row_sala['tipo']; ?></td>
+										<td>
+											<?php echo "<a class='btn btn-success' href='sala-update.php?id=". $id . "'>
+												<i class='fas fa-sync-alt'></i>	
+											</a>"?>
+										</td>
+										<td>
+											<form action="">
+												<?php echo "<button type='button' class='btn btn-warning' href='user-delete.php?id=". $id . "' >
+													<i class='far fa-trash-alt'></i>
+												</button>"?>
+											</form>
+										</td>
+									</tr> 
+										<?php }?>
 						</tbody>
 					</table>
 				</div>

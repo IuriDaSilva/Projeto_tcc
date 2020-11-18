@@ -44,7 +44,7 @@ $(document).ready(function(){
 			cancelButtonText: 'Não, cancelar'
 		}).then((result) => {
 			if (result.value) {
-				window.location="index.php";
+				window.location="http://localhost/Projeto_final/index.php";
 			}
 		});
 	});

@@ -167,7 +167,7 @@ session_start();
 
 						//Receber os dados do formulário
 						$formDados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-
+					
 						//Verificar se o usuário clicou no botão e a posição SendEditUsuario possui valor
 						if (!empty($formDados['SendEditUsuario'])) {
 							$editUsuario = new Usuario();
@@ -178,12 +178,13 @@ session_start();
 							//Instanciar o metodo editar
 							$valor = $editUsuario->editar();
 
+
 							if ($valor) {
 								$_SESSION['msg'] = "<p style='color: green;'>Conta a pagar editada com sucesso!</p>";
-								header("Location: user-list.php");
+								header("Location: user-update.php");
 							} else {
 								$_SESSION['msg'] = "<p style='color: #ff0000;'>Erro: Conta a pagar não editada</p>";
-								header("Location: user-list.php");
+								header("Location: user-update.php");
 							}
 						}
 
@@ -192,12 +193,13 @@ session_start();
 
 						//Instaciar o método visualizar
 						$result_vis_usuario = $visUsuario->visualizar();
-						var_dump($result_vis_usuario);
+
 						extract($result_vis_usuario);
 					
 				?>
 				<div class="container-fluid">
-					<form action="" class="form-neon" autocomplete="off">
+					<form method="POST" action="" name="EditUsuario" class="form-neon" autocomplete="off">
+					<input type="hidden" name="id" value="<?php echo $id ?>">
 						<fieldset>
 							<legend><i class="far fa-address-card"></i> &nbsp; Preencha os dados do usuário</legend>
 							<div class="container-fluid">
@@ -205,7 +207,7 @@ session_start();
 									<div class="col-12 col-md-4">
 										<div class="form-group">
 											<label for="usuario_mat" class="bmd-label-floating">Matrícula</label>
-											<input type="text" class="form-control" name="usuario_mat" id="usuario_mat" value="<?php echo $id ?>">
+											<input type="text" class="form-control" name="usuario_mat" id="usuario_mat" value="<?php echo $matricula ?>">
 										</div>
 									</div>
 									
@@ -256,14 +258,14 @@ session_start();
 									<div class="col-12 col-md-6">
 										<div class="form-group">
 											<label for="usuario_senha_1" class="bmd-label-floating">Senha</label>
-											<input type="password" class="form-control" name="usuario_senha_1" id="usuario_senha_1" >
+											<input type="password" class="form-control" name="usuario_senha_1" id="usuario_senha_1" value="<?php echo $senha ?>">
 										</div>
 									</div>
 									<div class="col-12 col-md-6">
-										<div class="form-group">
+									<!--	<div class="form-group">
 											<label for="usuario_senha_2" class="bmd-label-floating">Repetir senha</label>
 											<input type="password" class="form-control" name="usuario_senha_2" id="usuario_senha_2" >
-										</div>
+										</div>-->
 									</div>
 								</div>
 							</div>
@@ -289,7 +291,7 @@ session_start();
 							</div>
 						</fieldset>
 						<br><br><br>
-						<fieldset>
+					<!--	<fieldset>
 							<p class="text-center">Para alterar os dados de um usuário é necessário entrar com seu usuário e senha.</p>
 							<div class="container-fluid">
 								<div class="row">
@@ -307,16 +309,16 @@ session_start();
 									</div>
 								</div>
 							</div>
-						</fieldset>
+						</fieldset>-->
 						
 						<p class="text-center" style="margin-top: 40px;">
-							<button type="submit" class="btn btn-raised btn-success btn-sm"  name="SendEditUsuario"><i class="fas fa-sync-alt"></i> &nbsp; ATUALIZAR</button>
+							<button type="submit" class="btn btn-raised btn-success btn-sm" value="Editar" name="SendEditUsuario"><i class="fas fa-sync-alt"></i> &nbsp; ATUALIZAR</button>
 						</p>
 						<?php
-						} else {
+						}else{
 							//echo "Usuário não editado!!";
 							$_SESSION['msg'] = "<p style='color: #ff0000;'>Erro: Conta a pagar não encontrada!</p>";
-							header("Location: user-list.php");
+							header("Location: user-update.php");
 						}
 						?>
 					</form>

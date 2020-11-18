@@ -144,41 +144,87 @@
                     </li>
                 </ul>
             </div>
-            
+			
+			<?php
+					//Receber o Id da URL
+					$id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
+
+					//Verificar se o ID possui valor
+					if (!empty($id)) {
+						//Incluir os arquivos
+						require '../classes/Conexao.php';
+						require '../classes/Sala.php';
+						//Instanciar a classe e criar o objeto
+						$visSala = new Sala();
+
+						//Receber os dados do formulário
+						$formDados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+					
+						//Verificar se o usuário clicou no botão e a posição SendEditUsuario possui valor
+						if (!empty($formDados['SendEditSala'])) {
+							$editSala = new Sala();
+
+							//Enviar os dados para o atributo formdados da classe ContasPagar
+							$editSala->formDados = $formDados;
+
+							//Instanciar o metodo editar
+							$valor = $editSala->editar();
+
+
+							if ($valor) {
+								$_SESSION['msg'] = "<p style='color: green;'>Conta a pagar editada com sucesso!</p>";
+								header("Location: user-update.php");
+							} else {
+								$_SESSION['msg'] = "<p style='color: #ff0000;'>Erro: Conta a pagar não editada</p>";
+								header("Location: user-update.php");
+							}
+						}
+
+						//Enviar o ID par ao atributo da classe ContaPagar
+						$visSala->id = $id;
+
+						//Instaciar o método visualizar
+						$result_vis_sala = $visSala->visualizar();
+
+						extract($result_vis_sala);
+					
+				?>
+
             <!--Conteúdo principal-->
             <div class="container-fluid">
-				<form action="" class="form-neon" autocomplete="off">
+				<form  method="POST" action="" class="form-neon" autocomplete="off">
+				<input type="hidden" name="id" value="<?php echo $id ?>">
 					<fieldset>
 						<legend><i class="far fa-plus-square"></i> &nbsp; Informação da sala</legend>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-12 col-md-6">
 									<div class="form-group">
-										<label for="item_codigo" class="bmd-label-floating">Códido</label>
-										<input type="text" pattern="[a-zA-Z0-9-]{1,45}" class="form-control" name="item_codigo" id="item_codigo" maxlength="45">
+										<label for="sala_codigo" class="bmd-label-floating">Códido</label>
+										<input type="text"  class="form-control" name="sala_codigo" id="sala_codigo" value="<?php echo $codigo ?>">
 									</div>
 								</div>
 								
 								<div class="col-24 col-md-6">
 									<div class="form-group">
-										<label for="item_nombre" class="bmd-label-floating">Nome</label>
-										<input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="item_nombre" id="item_nombre" maxlength="140">
+										<label for="sala_nome" class="bmd-label-floating">Nome</label>
+										<input type="text"  class="form-control" name="sala_nome" id="sala_nome" value="<?php echo $nome ?>">
+										</div>
 									</div>
-								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group">
-										<label for="item_estado" class="bmd-label-floating">Tipo</label>
-										<select class="form-control" name="item_estado" id="item_estado">
+										<label for="sala_tipo" class="bmd-label-floating">Tipo</label>
+										<select class="form-control" name="sala_tipo" id="sala_tipo">
 											<option value="" selected="" disabled="">Selecione uma opção</option>
-											<option value="Habilitado">Laboratório</option>
-											<option value="Deshabilitado">Auditório</option>
+											<option value="Laboratório">Laboratório</option>
+											<option value="Auditório">Auditório</option>
 										</select>
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group">
-										<label for="item_detalle" class="bmd-label-floating">Descrição</label>
-										<input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9()- ]{1,190}" class="form-control" name="item_detalle" id="item_detalle" maxlength="190">
+										<label for="sal_desc" class="bmd-label-floating">Descrição</label>
+										<input type="text"  class="form-control" name="sal_desc" id="sal_desc" value="<?php echo $decricao ?>">
 									</div>
 								</div>
 							</div>
@@ -186,8 +232,15 @@
 					</fieldset>
 					<br><br><br>
 					<p class="text-center" style="margin-top: 40px;">
-						<button type="submit" class="btn btn-raised btn-success btn-sm"><i class="fas fa-sync-alt"></i> &nbsp; ATUALIZAR</button>
+						<button type="submit" class="btn btn-raised btn-success btn-sm" value="Atualizar" name="SendEditSala"><i class="fas fa-sync-alt"></i> &nbsp; ATUALIZAR</button>
 					</p>
+					<?php
+						}else{
+							//echo "Usuário não editado!!";
+							$_SESSION['msg'] = "<p style='color: #ff0000;'>Erro: Conta a pagar não encontrada!</p>";
+							header("Location: user-update.php");
+						}
+						?>
 				</form>
 			</div>
         </section>

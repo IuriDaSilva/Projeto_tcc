@@ -190,9 +190,9 @@
 										</td>
 										<td>
 											<form action="">
-												<button type="button" class="btn btn-warning">
-													<i class="far fa-trash-alt"></i>
-												</button>
+												<?php echo "<button type='button' class='btn btn-warning' href='user-delete.php?id=". $id . "' >
+													<i class='far fa-trash-alt'></i>
+												</button>"?>
 											</form>
 										</td>
 									</tr> 
