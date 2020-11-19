@@ -103,7 +103,7 @@
 						</li>
 
 						<li>
-							<a href="../company.php"><i class="fas fa-info-circle"></i> &nbsp; Informações</a>
+							<a href="../company.php"><i class="fas fa-info-circle"></i> &nbsp; Contato</a>
 						</li>
 					</ul>
 				</nav>
@@ -169,21 +169,19 @@
 								foreach ($list_sala_pgs as $row_sala) {
 									extract($row_sala);?>
 									<tr class="text-center" >
-									<th><?php echo $row_sala['id']; ?></th>
+									<th><?php echo $row_sala['id_sala']; ?></th>
 									<td><?php echo $row_sala['codigo']; ?></td>
 									<td><?php echo $row_sala['nome']; ?></td>
 									<td><?php echo $row_sala['tipo']; ?></td>
 										<td>
-											<?php echo "<a class='btn btn-success' href='sala-update.php?id=". $id . "'>
+											<?php echo "<a class='btn btn-success' href='sala-update.php?id=". $id_sala . "'>
 												<i class='fas fa-sync-alt'></i>	
 											</a>"?>
 										</td>
 										<td>
-											<form action="">
-												<?php echo "<button type='button' class='btn btn-warning' href='user-delete.php?id=". $id . "' >
+												<?php echo "<a class='btn btn-warning' href='sala-delete.php?id=". $id_sala . "' >
 													<i class='far fa-trash-alt'></i>
-												</button>"?>
-											</form>
+													</a>"?>
 										</td>
 									</tr> 
 										<?php }?>

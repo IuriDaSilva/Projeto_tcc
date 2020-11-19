@@ -39,18 +39,19 @@
 			<p class="text-center">
 				Entre com a sua conta
 			</p>
-			<form action="">
+			<form action="home.php" method="POST">
 				<div class="form-group">
-					<label for="UserName" class="bmd-label-floating"><i class="fas fa-user-secret"></i> &nbsp; Usuário</label>
-					<input type="text" class="form-control" id="UserName" name="usuario" pattern="[a-zA-Z0-9]{1,35}" maxlength="35">
+					<label for="email" class="bmd-label-floating"><i class="fas fa-user-secret"></i> &nbsp; Usuário</label>
+					<input type="text" class="form-control" id="email" name="email" maxlength="35">
 				</div>
 				<div class="form-group">
-					<label for="UserPassword" class="bmd-label-floating"><i class="fas fa-key"></i> &nbsp; Senha</label>
-					<input type="password" class="form-control" id="UserPassword" name="clave" maxlength="200">
+					<label for="senha" class="bmd-label-floating"><i class="fas fa-key"></i> &nbsp; Senha</label>
+					<input type="password" class="form-control" id="senha" name="senha" maxlength="200">
 				</div>
-				
-				<a href="home.php" class="btn-login text-center">Entrar</a>
-				<br>
+				<div class="form-group">
+					<button class="btn-login text-center" type="submit">Entrar</a>
+					<br>
+				</div>
 				<p class="text-center">
 				<a href="senha.php" >Esqueceu a senha?</a>
 				</p>

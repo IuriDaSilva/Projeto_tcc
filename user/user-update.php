@@ -55,7 +55,7 @@ session_start();
 					<nav class="full-box nav-lateral-menu">
 						<ul>
 							<li>
-								<a href="../home.php"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Iníco</a>
+								<a href="../home.php"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Início</a>
 							</li>
 
 							<li>
@@ -107,7 +107,7 @@ session_start();
 							</li>
 
 							<li>
-								<a href="company.php"><i class="fas fa-info-circle"></i> &nbsp; Informações</a>
+								<a href="company.php"><i class="fas fa-info-circle"></i> &nbsp; Contato</a>
 							</li>
 						</ul>
 					</nav>
@@ -199,7 +199,7 @@ session_start();
 				?>
 				<div class="container-fluid">
 					<form method="POST" action="" name="EditUsuario" class="form-neon" autocomplete="off">
-					<input type="hidden" name="id" value="<?php echo $id ?>">
+					<input type="hidden" name="id" value="<?php echo $id_usuario ?>">
 						<fieldset>
 							<legend><i class="far fa-address-card"></i> &nbsp; Preencha os dados do usuário</legend>
 							<div class="container-fluid">
@@ -262,10 +262,10 @@ session_start();
 										</div>
 									</div>
 									<div class="col-12 col-md-6">
-									<!--	<div class="form-group">
+										<div class="form-group">
 											<label for="usuario_senha_2" class="bmd-label-floating">Repetir senha</label>
 											<input type="password" class="form-control" name="usuario_senha_2" id="usuario_senha_2" >
-										</div>-->
+										</div>
 									</div>
 								</div>
 							</div>

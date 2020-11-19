@@ -1,3 +1,4 @@
+
 <!DOCTYPE php>
 <php lang="pt-br">
 <head>
@@ -151,28 +152,57 @@
 			
 			<!-- Content -->
 			<div class="container-fluid">
-				<form class="form-neon" action="">
+				<form class="form-neon" method="POST"  action="">
 					<div class="container-fluid">
 						<div class="row justify-content-md-center">
 							<div class="col-12 col-md-6">
 								<div class="form-group">
 									<label for="inputSearch" class="bmd-label-floating">O que você deseja buscar ?</label>
-									<input type="text" class="form-control" name="busqueda-" id="inputSearch" maxlength="30">
+									<input type="text" class="form-control" name="busca" id="inputSearch" maxlength="30">
 								</div>
 							</div>
 							<div class="col-12">
 								<p class="text-center" style="margin-top: 40px;">
-									<button type="submit" class="btn btn-raised btn-info"><i class="fas fa-search"></i> &nbsp; BUSCAR</button>
+									<button type="submit" name="SendPesqUser" value="Pesquisar" class="btn btn-raised btn-info"><i class="fas fa-search"></i> &nbsp; BUSCAR</button>
 								</p>
 							</div>
 						</div>
 					</div>
-				</form>
-			</div>
+					<?php
+								require '../classes/Conexao.php';
+								require '../classes/Usuario.php';
+								$buscaUsuario = new Usuario();
+								$busca_usuario_pgs = $buscaUsuario->buscar();
+								//var_dump($list_contas_pgs);
 
-			
+								foreach ($busca_usuario_pgs as $row_usuario) {
+									extract($row_usuario);?>
+									<tr class="text-center" >
+									<th><?php echo $row_usuario['id_usuario']; ?></th>
+									<td><?php echo $row_usuario['matricula']; ?></td>
+									<td><?php echo $row_usuario['nome']; ?></td>
+									<td><?php echo $row_usuario['cpf']; ?></td>
+									<td><?php echo $row_usuario['telefone']; ?></td>
+									<td><?php echo $row_usuario['endereco']; ?></td>
+									<td><?php echo $row_usuario['email']; ?></td>
+										<td>
+											<?php echo "<a class='btn btn-success' href='user-update.php?id=". $id_usuario . "'>
+												<i class='fas fa-sync-alt'></i>	
+											</a>"?>
+										</td>
+										<td>
+											<form action="">
+												<?php echo "<button type='button' class='btn btn-warning' href='user-delete.php?id=". $id_usuario . "' >
+													<i class='far fa-trash-alt'></i>
+												</button>"?>
+											</form>
+										</td>
+									</tr> 
+										<?php }?>
+				</form>
+			</div>			
 			<div class="container-fluid">
-				<form action="">
+				<form action="" method="POST">
 					<input type="hidden" name="eliminar-busqueda" value="eliminar">
 					<div class="container-fluid">
 						<div class="row justify-content-md-center">
@@ -189,10 +219,6 @@
 						</div>
 					</div>
 				</form>
-			</div>
-
-
-			<!-- Lista -->
 			<div class="container-fluid">
 				<div class="table-responsive">
 					<table class="table table-dark table-sm">
@@ -211,90 +237,8 @@
 						</thead>
 						<tbody>
 							<tr class="text-center" >
-								<td>1</td>
-								<th>100001</th>
-								<th>Maria Souza</th>
-								<th>111.222.333-44</th>
-								<th>2273-1177</th>
-								<th>Rua A,220,Rio de janeiro.</th>
-								<th>maria@email.com</th>
-								<td>
-									<a href="user-update.php" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>2</td>
-								<th>100002</th>
-								<th>Pedro Silva</th>
-								<th>333.445.387-50</th>
-								<th>2222-1111</th>
-								<th>Rua C,110,Rio de janeiro.</th>
-								<th>pedro@email.com</th>
-								<td>
-									<a href="user-update.php" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>3</td>
-								<th>200001</th>
-								<th>Camila Santos</th>
-								<th>321.456.789-00</th>
-								<th>4444-3333</th>
-								<th>Rua B,800,Rio de janeiro.</th>
-								<th>camila@email.com</th>
-								<td>
-									<a href="user-update.php" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>4</td>
-								<th>200002</th>
-								<th>Bruno Fontes</th>
-								<th>789.456.123-78</th>
-								<th>7777-2222</th>
-								<th>Rua D,450,Rio de janeiro.</th>
-								<th>bruno@email.com</th>
-								<td>
-									<a href="user-update.php" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-						</tbody>
+							
+							</tbody>
 					</table>
 				</div>
 				<nav aria-label="Page navigation example">

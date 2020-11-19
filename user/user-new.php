@@ -109,7 +109,7 @@ session_start();
 							</li>
 
 							<li>
-								<a href="company.php"><i class="fas fa-info-circle"></i> &nbsp; Informações</a>
+								<a href="company.php"><i class="fas fa-info-circle"></i> &nbsp; Contato</a>
 							</li>
 						</ul>
 					</nav>

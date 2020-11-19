@@ -103,7 +103,7 @@
                        </li>
 
                        <li>
-                           <a href="company.php"><i class="fas fa-info-circle"></i> &nbsp; Informações</a>
+                           <a href="company.php"><i class="fas fa-info-circle"></i> &nbsp; Contato</a>
                        </li>
                    </ul>
                </nav>
@@ -125,7 +125,7 @@
             <!-- Page header -->
             <div class="full-box page-header">
                 <h3 class="text-left">
-                    <i class="fas fa-info-circle"></i> &nbsp; INFORMAÇÃO DA EMPRESA
+                    <i class="fas fa-info-circle"></i> &nbsp; ENTRE EM CONTATO CONOSCO
                 </h3>
                 <p class="text-justify">
                 </p>
@@ -135,13 +135,13 @@
             <div class="container-fluid">
                 <form action="" class="form-neon" autocomplete="off">
                     <fieldset>
-                        <legend><i class="far fa-building"></i> &nbsp; Entre em contato conosco.</legend>
+                        <legend><i class="far fa-building"></i> &nbsp; Você pode informar um problema ou dar uma sujestão de melhoria.</legend>
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="info_nome" class="bmd-label-floating">Seu nome</label>
-                                        <input type="text" pattern="[a-zA-z0-99áéíóúÁÉÍÓÚñÑ ]{1,70}" class="form-control" name="empresa_nombre" id="empresa_nombre" maxlength="70">
+                                        <input type="text" class="form-control" name="empresa_nombre" id="empresa_nombre" maxlength="70">
                                     </div>
                                 </div>
 
@@ -154,19 +154,19 @@
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="info_telefone" class="bmd-label-floating">Telefone</label>
-                                        <input type="text" pattern="[0-9()+]{1,20}" class="form-control" name="empresa_telefono" id="empresa_telefono" maxlength="20">
+                                        <input type="text" class="form-control" name="empresa_telefono" id="empresa_telefono" maxlength="20">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <label for="info_descricao" class="bmd-label-floating">Descrição</label>
-                                        <input type="text" pattern="[a-zA-z0-99áéíóúÁÉÍÓÚñÑ ]{1,190}" class="form-control" name="empresa_direccion" id="empresa_direccion" maxlength="190">
+                                        <label for="info_descricao" class="bmd-label-floating">Descrição do problema ou melhoria</label>
+                                        <input type="text" class="form-control" name="empresa_direccion" id="empresa_direccion" maxlength="250">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-12">
                                     <div class="form-group">
                                         <label for="info_mensagem" class="bmd-label-floating">Mensagem</label>
-                                        <input type="text" pattern="[a-zA-z0-99áéíóúÁÉÍÓÚñÑ ]{1,190}" class="form-control" name="empresa_direccion" id="empresa_direccion" maxlength="190">
+                                        <input type="text" class="form-control" name="empresa_direccion" id="empresa_direccion" maxlength="250">
                                     </div>
                                 </div>
                             </div>

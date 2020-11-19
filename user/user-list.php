@@ -102,7 +102,7 @@
 							</li>
 
 							<li>
-								<a href="company.php"><i class="fas fa-info-circle"></i> &nbsp; Informações</a>
+								<a href="company.php"><i class="fas fa-info-circle"></i> &nbsp; Contato</a>
 							</li>
 						</ul>
 					</nav>
@@ -172,11 +172,11 @@
 								$listUsuario = new Usuario();
 								$list_usuario_pgs = $listUsuario->listar();
 								//var_dump($list_contas_pgs);
-
+							
 								foreach ($list_usuario_pgs as $row_usuario) {
 									extract($row_usuario);?>
 									<tr class="text-center" >
-									<th><?php echo $row_usuario['id']; ?></th>
+									<th><?php echo $row_usuario['id_usuario']; ?></th>
 									<td><?php echo $row_usuario['matricula']; ?></td>
 									<td><?php echo $row_usuario['nome']; ?></td>
 									<td><?php echo $row_usuario['cpf']; ?></td>
@@ -184,16 +184,14 @@
 									<td><?php echo $row_usuario['endereco']; ?></td>
 									<td><?php echo $row_usuario['email']; ?></td>
 										<td>
-											<?php echo "<a class='btn btn-success' href='user-update.php?id=". $id . "'>
+											<?php echo "<a class='btn btn-success' href='user-update.php?id=". $id_usuario . "'>
 												<i class='fas fa-sync-alt'></i>	
 											</a>"?>
 										</td>
 										<td>
-											<form action="">
-												<?php echo "<button type='button' class='btn btn-warning' href='user-delete.php?id=". $id . "' >
+												<?php echo "<a class='btn btn-warning btn-delete-usuario''data-confirm='Tem certeza que quer excluir o usuário!'' href='user-delete.php?id=". $id_usuario . "' >
 													<i class='far fa-trash-alt'></i>
-												</button>"?>
-											</form>
+													</a>"?>
 										</td>
 									</tr> 
 										<?php }?>
@@ -202,20 +200,18 @@
 					</div>
 
 					<nav aria-label="Page navigation example">
-						<ul class="pagination justify-content-center">
-						<li class="page-item">
-									<a class="page-link" href=" user-list.php" aria-label= "Previous" >
-									<span aria-hidden="true"></span>
-								</a>
+					<ul class="pagination justify-content-center">
+						<li class="page-item disabled">
+							<a class="page-link" href="#" tabindex="-1">Anterior</a>
 						</li>
-							<li class="page-item">
-								<a class="page-link" href=" user-list.php" aria-label= " Previous " >
-											<span aria-hidden="true"></span>
-										</a>
-								<span aria-hidden="true"></span>
-							</li>
-						</ul>
-					</nav>
+						<li class="page-item"><a class="page-link" href="#">1</a></li>
+						<li class="page-item"><a class="page-link" href="#">2</a></li>
+						<li class="page-item"><a class="page-link" href="#">3</a></li>
+						<li class="page-item">
+							<a class="page-link" href="#">Proximo</a>
+						</li>
+					</ul>
+				</nav>
 				</div>
 				
 			</section>

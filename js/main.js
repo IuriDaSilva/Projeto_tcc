@@ -49,6 +49,28 @@ $(document).ready(function(){
 		});
 	});
 });
+/*  Exit system buttom */
+$('.btn-delete-usuario').on('click', function(e){
+	var href = $(this).attr('href');
+	if(!$('#confirm-delete').length){
+	e.preventDefault();
+	Swal.fire({
+		title: 'Você deseja apagar o usuário?',
+		text: "Você irá apagar todos os dados deste usário.",
+		type: 'question',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Sim, confirmar!',
+		cancelButtonText: 'Não, cancelar'
+	}).then((result) => {
+		if (result.value == true) {
+			window.location.href = "user-delete.php?id="+id;
+		}
+	})
+	};
+});
+
 (function($){
     $(window).on("load",function(){
         $(".nav-lateral-content").mCustomScrollbar({

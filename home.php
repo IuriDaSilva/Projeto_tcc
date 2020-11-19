@@ -102,7 +102,7 @@
 						</li>
 
 						<li>
-							<a href="company.php"><i class="fas fa-info-circle"></i> &nbsp; Informações</a>
+							<a href="company.php"><i class="fas fa-info-circle"></i> &nbsp; Contato</a>
 						</li>
 					</ul>
 				</nav>
@@ -161,7 +161,7 @@
 				</a>
 
 				<a href="company.php" class="tile">
-					<div class="tile-tittle">Informações</div>
+					<div class="tile-tittle">Contato</div>
 					<div class="tile-icon">
 						<i class="fas fa-info-circle"></i>
 						

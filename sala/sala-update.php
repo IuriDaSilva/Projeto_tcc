@@ -224,7 +224,7 @@
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="sal_desc" class="bmd-label-floating">Descrição</label>
-										<input type="text"  class="form-control" name="sal_desc" id="sal_desc" value="<?php echo $decricao ?>">
+										<input type="text"  class="form-control" name="sal_desc" id="sal_desc" value="<?php echo $descricao ?>">
 									</div>
 								</div>
 							</div>
