@@ -1,5 +1,5 @@
-<!DOCTYPE php>
-<php lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -70,16 +70,16 @@
 						</li>
 
 						<li>
-							<a href="#" class="nav-btn-submenu"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Salas <i class="fas fa-chevron-down"></i></a>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-store-alt fa-fw"></i> &nbsp; reservas <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="../sala/sala-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova sala</a>
+									<a href="../reserva/reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
 								</li>
 								<li>
-									<a href="../sala/sala-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de salas</a>
+									<a href="../reserva/reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
 								</li>
 								<li>
-									<a href="../sala/sala-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar salas</a>
+									<a href="../reserva/reserva-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar reservas</a>
 								</li>
 							</ul>
 						</li>
@@ -153,97 +153,45 @@
 					<table class="table table-dark table-sm">
 						<thead>
 							<tr class="text-center roboto-medium">
-								<th>#</th>
-								<th>USUÁRIO</th>
-								<th>DATA DA RESERVA</th>
-								<th>HORA DA RESERVA</th>
-								<th>HORA DA ENTREGA</th>
-								<th>ESTADO</th>
+								<th>ID</th>
+								<th>NOME RESERVA</th>
+								<th>NOME RESPONSAVEL</th>
+								<th>DESCRIÇÃO</th>
+								<th>DATA E HORA DO INICIO</th>
+								<th>DATA E HORA DO FINAL</th>
 								<th>EDITAR</th>
 								<th>EXCLUIR</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="text-center" >
-								<td>1</td>
-								<td>Maria Souza</td>
-								<td>10/8/2020</td>
-								<td>10:00</td>
-								<td>12:00</td>
-								<td>Finalizada</td>
-								<td>
-									<a href="reserva-update.php" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>2</td>
-								<td>Camila Santos</td>
-								<td>19/9/2020</td>
-								<td>09:00</td>
-								<td>11:00</td>
-								<td>Finalizada</td>
-								<td>
-									<a href="reserva-update.php" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>3</td>
-								<td>Bruno Fontes</td>
-								<td>25/10/2020</td>
-								<td>13:00</td>
-								<td>15:00</td>
-								<td>Pendente</td>
-								<td>
-									<a href="reserva-update.php" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>4</td>
-								<td>Pedro Silva</td>
-								<td>30/10/2020</td>
-								<td>14:00</td>
-								<td>16:00</td>
-								<td>Pendente</td>
-								<td>
-									<a href="reserva-update.php" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
+							<?php
+								require '../classes/Conexao.php';
+								require '../classes/Reserva.php';
+								$list_reserva = new Reserva();
+								$list_reserva_pgs = $list_reserva->listar();
+								//var_dump($list_reserva_pgs);
+
+								foreach ($list_reserva_pgs as $row_reserva) {
+									extract($row_reserva);?>
+									<tr class="text-center" >
+									<th><?php echo $row_reserva['id_reserva']; ?></th>
+									<td><?php echo $row_reserva['nome_reserva']; ?></td>
+									<td><?php echo $row_reserva['nome_resp']; ?></td>
+									<td><?php echo $row_reserva['descricao']; ?></td>
+									<td><?php echo $row_reserva['data_inicio']; ?></td>
+									<td><?php echo $row_reserva['data_final']; ?></td>
+										<td>
+											<?php echo "<a class='btn btn-success' href='reserva-update.php?id=". $id_reserva . "'>
+												<i class='fas fa-sync-alt'></i>	
+											</a>"?>
+										</td>
+										<td>
+										<?php echo "<a class='btn btn-warning btn-delete-usuario' href='reserva-delete.php?id=". $id_reserva ."'data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
+												<i class='far fa-trash-alt'></i>
+											</a>"?>
+										</td>
+									</tr> 
+								<?php }?>
 						</tbody>
 					</table>
 				</div>
@@ -286,4 +234,4 @@
 
 	<script src="../js/main.js" ></script>
 </body>
-</php>
+</html>

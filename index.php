@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -32,33 +35,52 @@
 <body>
 
 	<div class="login-container">
+	
 		<div class="login-content">
+
 			<p class="text-center">
 				<i class="fas fa-user-circle fa-5x"></i>
 			</p>
 			<p class="text-center">
-				Entre com a sua conta
+				Entre com a sua conta.
 			</p>
-			<form action="home.php" method="POST">
+			
+			<form action="valida.php" method="POST">
 				<div class="form-group">
 					<label for="email" class="bmd-label-floating"><i class="fas fa-user-secret"></i> &nbsp; Usuário</label>
 					<input type="text" class="form-control" id="email" name="email" maxlength="35">
 				</div>
 				<div class="form-group">
 					<label for="senha" class="bmd-label-floating"><i class="fas fa-key"></i> &nbsp; Senha</label>
-					<input type="password" class="form-control" id="senha" name="senha" maxlength="200">
+					<input type="password" class="form-control" id="senha" name="senha" maxlength="20">
 				</div>
 				<div class="form-group">
-					<button class="btn-login text-center" type="submit">Entrar</a>
+					<button class="btn-login text-center" type="submit"  name="logar" value="Logar">Entrar</a>
 					<br>
 				</div>
 				<p class="text-center">
 				<a href="senha.php" >Esqueceu a senha?</a>
 				</p>
+				<p class="text-center text-danger">
+				<?php if(isset($_SESSION['loginErro'])){
+						echo $_SESSION['loginErro'];
+						unset($_SESSION['loginErro']);
+					}?>
+				</p>
+				<p class="text-center text-success">
+					<?php 
+					if(isset($_SESSION['logindeslogado'])){
+						echo $_SESSION['logindeslogado'];
+						unset($_SESSION['logindeslogado']);
+					}
+					?>
+				</p>
 			</form>
+		
+		
 		</div>
 	</div>
-
+	
 	
 	<!--=============================================
 	=            Include JavaScript files           =

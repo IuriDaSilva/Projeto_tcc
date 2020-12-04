@@ -172,11 +172,13 @@
 
 
 							if ($valor) {
-								$_SESSION['msg'] = "<p style='color: green;'>Conta a pagar editada com sucesso!</p>";
-								header("Location: user-update.php");
+								echo "<div class='alert alert-success' role='alert'>Sala editada com sucesso!</div>";
+								//$_SESSION['msg'] = "<p style='color: green;'>Conta a pagar editada com sucesso!</p>";
+								//header("Location: user-update.php");
 							} else {
-								$_SESSION['msg'] = "<p style='color: #ff0000;'>Erro: Conta a pagar não editada</p>";
-								header("Location: user-update.php");
+								echo "<div class='alert alert-danger' role='alert'>Sala não editada!</div>";
+								//$_SESSION['msg'] = "<p style='color: #ff0000;'>Erro: Conta a pagar não editada</p>";
+								//header("Location: user-update.php");
 							}
 						}
 
@@ -236,9 +238,9 @@
 					</p>
 					<?php
 						}else{
-							//echo "Usuário não editado!!";
-							$_SESSION['msg'] = "<p style='color: #ff0000;'>Erro: Conta a pagar não encontrada!</p>";
-							header("Location: user-update.php");
+							echo "<div class='alert alert-danger' role='alert'>Sala não editada!</div>";
+							//$_SESSION['msg'] = "<p style='color: #ff0000;'>Erro: Conta a pagar não encontrada!</p>";
+							//header("Location: user-update.php");
 						}
 						?>
 				</form>

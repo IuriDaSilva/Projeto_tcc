@@ -1,47 +1,63 @@
 <?php
-	session_start();
-	require_once('Conexao.php');
 	 
-	Class Login{
-	 
-	   function __construct(){
-		  $connect = new Conexao();
-	   }
-	 
-	   function verificarLogado(){
-		  if(!isset($_SESSION["logado"])){
-			 header("Location: ./home.php");
-			 exit();
-		  }
-	   }
-	 
-	   function Logar($email,$senha){
-		  $q_usuario = mysql_query("select * from usuario where usuario.email ='".$email."'");
-	 
-		  if(mysql_num_rows($q_usuario) == 1){
-			 $d_usuario = mysql_fetch_array($q_usuario);
-			 if($d_usuario["senha"] == $senha){
-				$_SESSION["id_usuario"] = $d_usuario["id"];
-				$_SESSION["logado"] = "sim";
-				header("Location: dirname(__FILE__)/../welcome.php");
-			 }else{
-				$Erro = "Senha e/ou Email errado(s)!";
-				return $Erro;
-			 }
-		  }else{
-			 $Erro = "Senha e/ou Email errado(s)!";
-			 return $Erro;
-		  };
-	   }
-	 
-	   function getIdUsuario(){
-		  return $_SESSION["id_usuario"];
-	   }
-	 
-	   function deslogar(){
-		  session_destroy();
-		  header("Location: dirname(__FILE__)/../index.php");
-	   }
-	 
+	Class Login  extends Conexao{
+		
+	  
+    // efetua login
+    public function login($email, $senha) {
+
+		$sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+  
+		$executa = mysqli_query($this->conexao->getCon(), $sql);
+  
+		if(mysqli_num_rows($executa) > 0) {
+		  return true;
+		} else {
+		  return false;
+		}
+	  }
+  
+  
+	  // Verifica se já existe login com o nome escolhido
+	  public function unico($email) {
+  
+		$unic = "SELECT * FROM usuario WHERE email = '$email'";
+  
+		$exec = mysqli_query($this->conexao->getCon(), $unic);
+  
+		if(mysqli_num_rows($exec) > 0) {
+		  return false;
+		} else {
+		  return true;
+		}
+	  }
+  
+	  // cadastra o usuário
+	  public function cadastra($email,$senha) {
+  
+		$sql = "INSERT INTO usuarios (email,senha) VALUES ('$email','$senha')";
+  
+		$executa = mysqli_query($this->conexao->getCon(), $sql);
+  
+		if(mysqli_affected_rows($this->conexao->getCon()) > 0) {
+		  return true;
+		} else {
+		  return false;
+		}
+	  }
+  
+	  // efetua logout
+	  public function logout() {
+  
+		session_start();
+  
+		session_destroy();
+  
+		//setcookie("login" , "" , time()-60*5);
+		header("Location:index.php?success=logout");
+		exit();
+	  }
+  
 	}
+  
 ?>

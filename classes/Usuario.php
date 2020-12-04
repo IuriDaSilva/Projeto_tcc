@@ -6,20 +6,27 @@ class Usuario extends Conexao
     public int $id;
     public array $formUsuario;
     public object $conn;
+    public $msgErro = "";
     //Login
     public function login($email, $senha){
-        global $pdo;
 
-        $sql ="SELECT * FROM usuarios where email = :email AND senha =: senha";
-        $sql = $pdo -> prepare($sql);
-        $sql->bindValue("email", $email);
-        $sql->bindValue("senha", $senha);
-        $sql->execute();
+        $this->conn = $this->connect();
+        $query_login = "SELECT id_usuario FROM usuarios where email = :email AND senha =: senha";
+        $new_login = $this->conn->prepare($query_login);
+        $new_login->execute();
+       // $new_login->bindParam(':email', $this->formLogin['email']);
+       // $new_login->bindParam(':senha', $this->formLogin['senha']);
+        $new_login->bindValue("email", $email);
+        $new_login->bindValue("senha", $senha);
+        
 
-        if($sql->rowCount() > 0){
-            $dado = $sql->fetch();
-
-            $_SESSION['id_user'] = $dado['id_usuario'];
+        if($new_login->rowCount() > 0){
+            $dado = $new_login->fetch();
+            session_start();
+            $_SESSION['id_usuario'] = $dado['id_usuario'];
+            return true;
+        }else{
+            return false;
         }
     }
 
@@ -29,7 +36,7 @@ class Usuario extends Conexao
         $this->conn = $this->connect();
         $query_usuario = "SELECT id_usuario, matricula, nome, cpf, telefone, email, endereco
                 FROM usuarios
-                ORDER BY id_usuario DESC
+                ORDER BY id_usuario ASC
                 LIMIT 5";
         $busca_usuario = $this->conn->prepare($query_usuario);
         $busca_usuario->execute();
@@ -37,6 +44,7 @@ class Usuario extends Conexao
         //var_dump($retorno);
         return $retorno;
     }
+
     public function visualizar(): array {
         $this->conn = $this->connect();
         $query_usuario = "SELECT id_usuario, matricula, nome, cpf, telefone, email, endereco, cargo, nome_usuario, senha
@@ -72,7 +80,7 @@ class Usuario extends Conexao
         $cad_usuario->bindParam(':senha', $this->formDados['usuario_senha_1']);
        
         $cad_usuario->execute();
-        
+       // var_dump($cad_usuario);
         if($cad_usuario->rowCount()){
             return true;
         }else{

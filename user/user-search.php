@@ -1,6 +1,6 @@
 
-<!DOCTYPE php>
-<php lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -29,6 +29,9 @@
 	
 	<!-- General Styles -->
 	<link rel="stylesheet" href="../css/style.css">
+
+	<link rel="https://cdn.datatables.net/1.10.22/css/dataTables.material.min.css">
+	<link rel="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/4.0.0/material-components-web.min.css">
 
 
 </head>
@@ -152,7 +155,7 @@
 			
 			<!-- Content -->
 			<div class="container-fluid">
-				<form class="form-neon" method="POST"  action="">
+				<form class="form-neon" method="POST"  action="user-search.php">
 					<div class="container-fluid">
 						<div class="row justify-content-md-center">
 							<div class="col-12 col-md-6">
@@ -163,20 +166,43 @@
 							</div>
 							<div class="col-12">
 								<p class="text-center" style="margin-top: 40px;">
-									<button type="submit" name="SendPesqUser" value="Pesquisar" class="btn btn-raised btn-info"><i class="fas fa-search"></i> &nbsp; BUSCAR</button>
+									<button type="submit" name="txt_pesquser" value="Pesquisar" class="btn btn-raised btn-info"><i class="fas fa-search"></i> &nbsp; BUSCAR</button>
 								</p>
 							</div>
 						</div>
 					</div>
-					<?php
-								require '../classes/Conexao.php';
-								require '../classes/Usuario.php';
-								$buscaUsuario = new Usuario();
-								$busca_usuario_pgs = $buscaUsuario->buscar();
-								//var_dump($list_contas_pgs);
+				</form>
+			</div>			
+				<div class="container-fluid">
+					<div class="table-responsive">
+						<table class="table table-dark table-sm">
+							<thead>
+								<tr class="text-center roboto-medium">
+									<th class="th-sm">ID</th>
+									<th class="th-sm">MATRÍCULA</th>
+									<th class="th-sm">NOME</th>
+									<th class="th-sm">CPF</th>
+									<th class="th-sm">TELEFONE</th>
+									<th class="th-sm">ENDEREÇO</th>
+									<th class="th-sm">EMAIL</th>
+									<th class="th-sm">EDITAR</th>
+									<th class="th-sm">EXCLUIR</th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php
+								include_once "../classes/Conexao.php";
+								$txt_pesquser = (isset($_POST["txt_pesquser"]))?$_POST["txt_pesquser"]:"";
 
-								foreach ($busca_usuario_pgs as $row_usuario) {
-									extract($row_usuario);?>
+								$sql = "SELECT id_usuario, matricula, nome, cpf, telefone, email, endereco
+								 FROM usuarios WHERE matricula = '{$txt_pesquser}' OR nome LIKE '%{$txt_pesquser}%' 
+								 ORDER BY id_usuario ASC
+								 LIMIT 5";
+
+								$rs = mysqli_query($conn, $sql);
+								while($dados = mysqli_fetch_assoc($rs)){
+											
+									?>
 									<tr class="text-center" >
 									<th><?php echo $row_usuario['id_usuario']; ?></th>
 									<td><?php echo $row_usuario['matricula']; ?></td>
@@ -191,71 +217,15 @@
 											</a>"?>
 										</td>
 										<td>
-											<form action="">
-												<?php echo "<button type='button' class='btn btn-warning' href='user-delete.php?id=". $id_usuario . "' >
-													<i class='far fa-trash-alt'></i>
-												</button>"?>
-											</form>
+											<?php echo "<a class='btn btn-warning btn-delete-usuario' href='user-delete.php?id=". $id_usuario ."'data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
+												<i class='far fa-trash-alt'></i>
+											</a>"?>
 										</td>
 									</tr> 
 										<?php }?>
-				</form>
-			</div>			
-			<div class="container-fluid">
-				<form action="" method="POST">
-					<input type="hidden" name="eliminar-busqueda" value="eliminar">
-					<div class="container-fluid">
-						<div class="row justify-content-md-center">
-							<div class="col-12 col-md-6">
-								<p class="text-center" style="font-size: 20px;">
-									Resultados da busca <strong>“Buscar”</strong>
-								</p>
-							</div>
-							<div class="col-12">
-								<p class="text-center" style="margin-top: 20px;">
-									<button type="submit" class="btn btn-raised btn-danger"><i class="far fa-trash-alt"></i> &nbsp; Cancelar a busca</button>
-								</p>
-							</div>
-						</div>
-					</div>
-				</form>
-			<div class="container-fluid">
-				<div class="table-responsive">
-					<table class="table table-dark table-sm">
-						<thead>
-							<tr class="text-center roboto-medium">
-								<th>#</th>
-								<th>MATRÍCULA</th>
-								<th>NOME</th>
-								<th>CPF</th>
-								<th>TELEFONE</th>
-								<th>ENDEREÇO</th>
-								<th>EMAIL</th>
-								<th>EDITAR</th>
-								<th>EXCLUIR</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="text-center" >
-							
 							</tbody>
-					</table>
-				</div>
-				<nav aria-label="Page navigation example">
-					<ul class="pagination justify-content-center">
-						<li class="page-item disabled">
-							<a class="page-link" href="#" tabindex="-1">Anterior</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item">
-							<a class="page-link" href="#">Proximo</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-
+						</table>
+					</div>
 		</section>
 	</main>
 	
@@ -273,6 +243,7 @@
 	<script src="../js/bootstrap.min.js" ></script>
 
 	<!-- jQuery Custom Content Scroller V3.1.5 -->
+	<script type="text/javascript" src="../js/personalizado.js"></script>
 	<script src="../js/jquery.mCustomScrollbar.concat.min.js" ></script>
 
 	<!-- Bootstrap Material Design V4.0 -->
@@ -280,5 +251,9 @@
 	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 
 	<script src="../js/main.js" ></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
+	<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" ></script>
+	<script src="https://cdn.datatables.net/1.10.22/js/dataTables.material.min.js" ></script>
 </body>
-</php>
+</html>

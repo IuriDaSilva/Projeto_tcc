@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	
+?>
+<br>
+<a href="sair.php">Sair</a>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -43,7 +50,7 @@
 					<i class="far fa-times-circle show-nav-lateral"></i>
 					<img src="./assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
 					<figcaption class="roboto-medium text-center">
-						Admin <br><small class="roboto-condensed-light">Coordenador</small>
+					<br><?php echo "". $_SESSION['usuarioNome'];?></br> <br><small><?php echo "". $_SESSION['usuarioCargo'];?></small></br>
 					</figcaption>
 				</figure>
 				<div class="full-box nav-lateral-bar"></div>
@@ -129,7 +136,7 @@
 					<i class="fab fa-dashcube fa-fw"></i> &nbsp; Início
 				</h3>
 				<p class="text-justify">
-					Escolha uma das funcionalidades que deseja utilizar.
+					
 				</p>
 			</div>
 			

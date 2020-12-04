@@ -135,7 +135,7 @@
             <div class="container-fluid">
                 <form action="" class="form-neon" autocomplete="off">
                     <fieldset>
-                        <legend><i class="far fa-building"></i> &nbsp; Você pode informar um problema ou dar uma sujestão de melhoria.</legend>
+                        <legend><i class="far fa-building"></i> &nbsp; Você pode informar um problema ou dar uma sugestão de melhoria.</legend>
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-12 col-md-6">

@@ -217,6 +217,13 @@ table form{
 .btn-login:focus{
 	outline: none;
 }
+/*div.msg-erro{
+	width: 90%;
+	padding: 10px 0;
+	padding: 10px ;
+	justify-content: center;
+	background-color: rgb(252, 25, 0);
+}*/
 
 /*----------  Page layout Styles  ----------*/
 .main-container{

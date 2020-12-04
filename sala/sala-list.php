@@ -179,9 +179,9 @@
 											</a>"?>
 										</td>
 										<td>
-												<?php echo "<a class='btn btn-warning' href='sala-delete.php?id=". $id_sala . "' >
-													<i class='far fa-trash-alt'></i>
-													</a>"?>
+										<?php echo "<a class='btn btn-warning btn-delete-usuario' href='sala-delete.php?id=". $id_sala ."'data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
+												<i class='far fa-trash-alt'></i>
+											</a>"?>
 										</td>
 									</tr> 
 										<?php }?>
@@ -228,7 +228,7 @@
 	<!-- Bootstrap Material Design V4.0 -->
 	<script src="../js/bootstrap-material-design.min.js" ></script>
 	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
-
+	<script src="../js/personalizado.js"></script>
 	<script src="../js/main.js" ></script>
 </body>
 </php>

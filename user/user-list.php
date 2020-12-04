@@ -151,7 +151,7 @@
 				
 				<div class="container-fluid">
 					<div class="table-responsive">
-						<table class="table table-dark table-sm">
+						<table class="table table-dark table-sm" id="example">
 							<thead>
 								<tr class="text-center roboto-medium">
 									<th>ID</th>
@@ -171,7 +171,7 @@
 								require '../classes/Usuario.php';
 								$listUsuario = new Usuario();
 								$list_usuario_pgs = $listUsuario->listar();
-								//var_dump($list_contas_pgs);
+								//var_dump($list_usuario_pgs);
 							
 								foreach ($list_usuario_pgs as $row_usuario) {
 									extract($row_usuario);?>
@@ -189,9 +189,9 @@
 											</a>"?>
 										</td>
 										<td>
-												<?php echo "<a class='btn btn-warning btn-delete-usuario''data-confirm='Tem certeza que quer excluir o usuário!'' href='user-delete.php?id=". $id_usuario . "' >
-													<i class='far fa-trash-alt'></i>
-													</a>"?>
+											<?php echo "<a class='btn btn-warning btn-delete-usuario' href='user-delete.php?id=". $id_usuario ."'data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
+												<i class='far fa-trash-alt'></i>
+											</a>"?>
 										</td>
 									</tr> 
 										<?php }?>
@@ -201,14 +201,54 @@
 
 					<nav aria-label="Page navigation example">
 					<ul class="pagination justify-content-center">
-						<li class="page-item disabled">
-							<a class="page-link" href="#" tabindex="-1">Anterior</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item">
-							<a class="page-link" href="#">Proximo</a>
+					<li class="page-item disabled">
+					
+					<?php
+					if(isset($_SESSION['msg'])){
+						echo $_SESSION['msg'];
+						unset($_SESSION['msg']);
+					}
+					//Receber o número da página
+					$pagina_atual = filter_input(INPUT_GET,'pagina', FILTER_SANITIZE_NUMBER_INT);		
+					$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+					
+					//Setar a quantidade de itens por pagina
+					$qnt_result_pg = 3;
+					
+					//calcular o inicio visualização
+					$inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
+					
+					$result_usuarios = "SELECT * FROM usuarios LIMIT $inicio, $qnt_result_pg";
+					$resultado_usuarios = mysqli_query($conn, $result_usuarios);
+					//Paginção - Somar a quantidade de usuários
+					$result_pg = "SELECT COUNT(id_usuario) AS num_result FROM usuarios";
+					$resultado_pg = mysqli_query($conn, $result_pg);
+					$row_pg = mysqli_fetch_assoc($resultado_pg);
+					//echo $row_pg['num_result'];
+					//Quantidade de pagina 
+					$quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
+					
+					//Limitar os link antes depois
+					$max_links = 2;
+					echo "<a href='user-list.php?pagina=1'>Primeira</a> ";
+					
+					for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
+						if($pag_ant >= 1){
+							echo "<a href='user-list.php?pagina=$pag_ant'>$pag_ant</a> ";
+						}
+					}
+						
+					echo "$pagina ";
+					
+					for($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++){
+						if($pag_dep <= $quantidade_pg){
+							echo "<a href='user-list.php?pagina=$pag_dep'>$pag_dep</a> ";
+						}
+					}
+					
+					echo "<a href='user-list.php?pagina=$quantidade_pg'>Ultima</a>";
+					
+				?>	
 						</li>
 					</ul>
 				</nav>
@@ -235,7 +275,10 @@
 		<!-- Bootstrap Material Design V4.0 -->
 		<script src="../js/bootstrap-material-design.min.js" ></script>
 		<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
-
+		<script src="../js/personalizado.js"></script>	
 		<script src="../js/main.js" ></script>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
+		<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" ></script>
 	</body>
 </html>	

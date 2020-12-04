@@ -180,11 +180,13 @@ session_start();
 
 
 							if ($valor) {
-								$_SESSION['msg'] = "<p style='color: green;'>Conta a pagar editada com sucesso!</p>";
-								header("Location: user-update.php");
+								echo "<div class='alert alert-success' role='alert'>Usuário editado com sucesso!</div>";
+								//$_SESSION['msg'] = "<p style='color: green;'>Conta a pagar editada com sucesso!</p>";
+								//header("Location: user-update.php");
 							} else {
-								$_SESSION['msg'] = "<p style='color: #ff0000;'>Erro: Conta a pagar não editada</p>";
-								header("Location: user-update.php");
+								echo "<div class='alert alert-danger' role='alert'>Usuário não editado!</div>";
+								//$_SESSION['msg'] = "<p style='color: #ff0000;'>Erro: Conta a pagar não editada</p>";
+								//header("Location: user-update.php");
 							}
 						}
 
@@ -291,34 +293,13 @@ session_start();
 							</div>
 						</fieldset>
 						<br><br><br>
-					<!--	<fieldset>
-							<p class="text-center">Para alterar os dados de um usuário é necessário entrar com seu usuário e senha.</p>
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-12 col-md-6">
-										<div class="form-group">
-											<label for="usuario_admin" class="bmd-label-floating">Nome de usuário</label>
-											<input type="text"  class="form-control" name="usuario_admin" id="usuario_admin" maxlength="35">
-										</div>
-									</div>
-									<div class="col-12 col-md-6">
-										<div class="form-group">
-											<label for="senha_admin" class="bmd-label-floating">Senha</label>
-											<input type="password" class="form-control" name="senha_admin" id="senha_admin" maxlength="200">
-										</div>
-									</div>
-								</div>
-							</div>
-						</fieldset>-->
 						
 						<p class="text-center" style="margin-top: 40px;">
 							<button type="submit" class="btn btn-raised btn-success btn-sm" value="Editar" name="SendEditUsuario"><i class="fas fa-sync-alt"></i> &nbsp; ATUALIZAR</button>
 						</p>
 						<?php
 						}else{
-							//echo "Usuário não editado!!";
-							$_SESSION['msg'] = "<p style='color: #ff0000;'>Erro: Conta a pagar não encontrada!</p>";
-							header("Location: user-update.php");
+							echo "<div class='alert alert-danger' role='alert'>Usuário não editado!</div>";
 						}
 						?>
 					</form>

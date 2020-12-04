@@ -168,13 +168,23 @@ session_start();
 						$valor = $cadUsuario->cadastrar();
 						//var_dump($valor);
 						if ($valor) {
-							echo 'Usuário cadastrado com sucesso!';
-							//$_SESSION['msg'] = "<p style='color: green;'> Conta a pagar cadastrada com sucesso! </p>";
-							//header("../user/user-new.php");
+							?>
+							<div class="alert alert-success alert-dismissible fade show" role="alert">
+								Usuário cadastrado com sucesso!
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							</div>
+							<?php
 						} else {
-							echo 'Usuário não cadastrado com sucesso!';
-							//$_SESSION['msg'] = "<p style='color: #ff0000;'> Erro: Conta a pagar não cadastrada com sucesso! </p>";
-							//header("../user/user-new.php");
+							?>
+							<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								Usuário não cadastrado com sucesso!
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							</div>
+							<?php
 						}
 					}
 				?>
@@ -263,8 +273,13 @@ session_start();
 										<div class="form-group">
 											<select class="form-control" name="usuario_cargo">
 												<option value="" selected="" disabled="">Selecione uma opção</option>
-												<option value="Coordenador">Coordenador</option>
-												<option value="Professor">Professor</option>
+												<?php
+													$result_niveis_acessos = "SELECT * FROM cargos";
+													$resultado_niveis_acesso = mysqli_query($conn, $result_niveis_acessos);
+													while($row_niveis_acessos = mysqli_fetch_assoc($resultado_niveis_acesso)){ ?>
+														<option value="<?php echo $row_niveis_acessos['id']; ?>"><?php echo $row_niveis_acessos['nome']; ?></option> <?php
+													}
+												?>
 											</select>
 										</div>
 									</div>

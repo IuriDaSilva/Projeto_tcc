@@ -39,7 +39,7 @@
                 $this->conn = $this->connect();
 
                 $query_cad_salas = "INSERT INTO salas
-                        (codigo, nome, tipo, decricao)
+                        (codigo, nome, tipo, descricao)
                         VALUES (:codigo, :nome, :tipo, :descricao)";
                 
                 $cad_sala = $this->conn->prepare($query_cad_salas);
@@ -51,7 +51,7 @@
             
             
                 $cad_sala->execute();
-                
+                var_dump($cad_sala);
                 if($cad_sala->rowCount()){
                     return true;
                 }else{
