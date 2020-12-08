@@ -58,7 +58,7 @@
 					<i class="far fa-times-circle show-nav-lateral"></i>
 					<img src="../assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
 					<figcaption class="roboto-medium text-center">
-					<br><?php echo "". $_SESSION['usuarioNome'];?></br><br><small class="roboto-condensed-light">Coordenador</small>
+					<br><?php echo "". $_SESSION['usuarioNome'];?></br><br><small> <?php echo "". $_SESSION['usuarioCargo'];?>
 					</figcaption>
 				</figure>
 				<div class="full-box nav-lateral-bar"></div>
@@ -101,18 +101,18 @@
 						<li>
 							<a href="#" class="nav-btn-submenu"><i class="far fa-address-card fa-fw"></i> &nbsp; Reservas <i class="fas fa-chevron-down"></i></a>
 							<ul>
-								<li>
-									<a href="reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
+							<li>
+									<a href="../reserva/reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
 								</li>
 								<li>
-									<a href="reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
+									<a href="../reserva/reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Histórico de reservas</a>
+								</li>
+								<!--<li>
+									<a href="../reserva/reserva-search.php"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar reservas</a>
 								</li>
 								<li>
-									<a href="reserva-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar reservas</a>
-								</li>
-								<li>
-									<a href="reserva-pend.php"><i class="far fa-id-card"></i> &nbsp; Reservas pendentes</a>
-								</li>
+									<a href="../reserva/reserva-pend.php"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Reservas pendentes</a>
+								</li>-->
 							</ul>
 						</li>
 
@@ -128,7 +128,7 @@
 					<a href="#" class="float-left show-nav-lateral">
 						<i class="fas fa-exchange-alt"></i>
 					</a>
-					<a href="../user/user-update.php">
+					<a href="../user/edit-perfil.php">
 						<i class="fas fa-user-cog"></i>
 					</a>
 					<a href="#" class="btn-exit-system">
@@ -149,14 +149,14 @@
 							<a class="active" href="reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; NOVA RESERVA</a>
 						</li>
 						<li>
-							<a  href="reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE RESERVAS</a>
+							<a  href="reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; HISTÓRICO DE RESERVAS</a>
 						</li>
-						<li>
+						<!--<li>
 							<a href="reserva-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR RESERVA</a>
 						</li>
 						<li>
 							<a href="reserva-pend.php"><i class="far fa-id-card"></i> &nbsp; RESERVAS PENDENTES</a>
-						</li>
+						</li>-->
 					</ul>
 				</div>
 			

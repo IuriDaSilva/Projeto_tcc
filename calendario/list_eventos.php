@@ -7,7 +7,9 @@
  */
 include 'conexao.php';
 
-$query_events = "SELECT id, title, details, id_sala, start, end FROM reservas";
+$query_events = "SELECT reservas.*, salas.nome FROM reservas 
+    INNER JOIN salas ON reservas.id_sala = salas.id_sala";
+
 $resultado_events = $conn->prepare($query_events);
 $resultado_events->execute();
 
@@ -18,6 +20,7 @@ while($row_events = $resultado_events->fetch(PDO::FETCH_ASSOC)){
     $title = $row_events['title'];
     $details = $row_events['details'];
     $color = $row_events['id_sala'];
+    $nome = $row_events['nome'];
     $start = $row_events['start'];
     $end = $row_events['end'];
     
@@ -26,6 +29,7 @@ while($row_events = $resultado_events->fetch(PDO::FETCH_ASSOC)){
         'title' => $title, 
         'details' => $details,
         'id_sala' => $color, 
+        'nome' => $nome,
         'start' => $start, 
         'end' => $end, 
         ];

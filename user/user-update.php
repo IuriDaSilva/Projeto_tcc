@@ -1,6 +1,9 @@
 <?php
-session_start();
+	session_start();
+	
 ?>
+<br>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -48,7 +51,7 @@ session_start();
 						<i class="far fa-times-circle show-nav-lateral"></i>
 						<img src="../assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
 						<figcaption class="roboto-medium text-center">
-							Admin <br><small class="roboto-condensed-light">Coordenador</small>
+						<br><?php echo "". $_SESSION['usuarioNome'];?></br> <br><small><?php echo "". $_SESSION['usuarioCargo'];?></small></br>
 						</figcaption>
 					</figure>
 					<div class="full-box nav-lateral-bar"></div>
@@ -91,18 +94,18 @@ session_start();
 							<li>
 								<a href="#" class="nav-btn-submenu"><i class="far fa-address-card fa-fw"></i> &nbsp; Reservas <i class="fas fa-chevron-down"></i></a>
 								<ul>
-									<li>
-										<a href="reservation-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
-									</li>
-									<li>
-										<a href="reservation-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
-									</li>
-									<li>
-										<a href="reservation-search.php"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar reservas</a>
-									</li>
-									<li>
-										<a href="reservation-pending.php"><i class="far fa-id-card"></i> &nbsp; Reservas pendentes</a>
-									</li>
+								<li>
+									<a href="../reserva/reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
+								</li>
+								<li>
+									<a href="../reserva/reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Histórico de reservas</a>
+								</li>
+								<!--<li>
+									<a href="../reserva/reserva-search.php"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar reservas</a>
+								</li>
+								<li>
+									<a href="../reserva/reserva-pend.php"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Reservas pendentes</a>
+								</li>-->
 								</ul>
 							</li>
 
@@ -120,7 +123,7 @@ session_start();
 					<a href="#" class="float-left show-nav-lateral">
 						<i class="fas fa-exchange-alt"></i>
 					</a>
-					<a href="user-update.php">
+					<a href="edit-perfil.php">
 						<i class="fas fa-user-cog"></i>
 					</a>
 					<a href="#" class="btn-exit-system">

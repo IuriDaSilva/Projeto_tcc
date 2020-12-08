@@ -114,7 +114,7 @@
                 <a href="#" class="float-left show-nav-lateral">
                     <i class="fas fa-exchange-alt"></i>
                 </a>
-                <a href="user-update.php">
+                <a href="../user/edit-perfil.php">
                     <i class="fas fa-user-cog"></i>
                 </a>
                 <a href="#" class="btn-exit-system">

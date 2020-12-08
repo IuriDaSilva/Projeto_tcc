@@ -43,6 +43,7 @@ session_start();
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    
                     <div class="modal-body">
                         <div class="visevent">
                             <dl class="row">
@@ -55,6 +56,9 @@ session_start();
                                 <dt class="col-sm-3">Descrição do evento</dt>
                                 <dd class="col-sm-9" id="details"></dd>
 
+                                <dt class="col-sm-3">Sala do evento</dt>
+                                <dd class="col-sm-9" id="sala"></dd>
+
                                 <dt class="col-sm-3">Início do evento</dt>
                                 <dd class="col-sm-9" id="start"></dd>
 
@@ -62,13 +66,15 @@ session_start();
                                 <dd class="col-sm-9" id="end"></dd>
                             </dl>
                             <button class="btn btn-warning btn-canc-vis">Editar</button>
-                            <a href="" id="apagar_evento" class="btn btn-danger">Apagar</a>
+                            <a href="" id="apagar_evento" class="btn btn-danger">Excluir</a>
                         </div>
          <!--Editar-->
                         <div class="formedit">
                             <span id="msg-edit"></span>
                             <form id="editevent" method="POST" enctype="multipart/form-data">
+
                                 <input type="hidden" name="id" id="id" >
+                            
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Título</label>
                                     <div class="col-sm-10">
@@ -86,7 +92,7 @@ session_start();
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Salas</label>
                                     <div class="col-sm-10">
-                                        <select name="sala" class="form-control" id="sala">
+                                        <select name="sala_ed" class="form-control" id="sala_ed">
                                             <option value="">Selecione</option>			
                                             <option style="color:#FFD700;" value="1">Audi 1</option>
                                             <option style="color:#0071c5;" value="2">Audi 2</option>
@@ -97,12 +103,14 @@ session_start();
                                         </select>
                                     </div>
                                 </div>
+                            
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Início do evento</label>
                                     <div class="col-sm-10">
                                         <input type="text" name="start" class="form-control" id="start" onkeypress="DataHora(event, this)">
                                     </div>
                                 </div>
+                            
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Final do evento</label>
                                     <div class="col-sm-10">
@@ -116,6 +124,7 @@ session_start();
                                         <button type="submit" name="EditEvent" id="EditEvent" value="EditEvent" class="btn btn-warning">Salvar</button>                                    
                                     </div>
                                 </div>
+
                             </form>                            
                         </div>
                     </div>

@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	
+?>
+<br>
+
 <!DOCTYPE php>
 <php lang="pt-br">
 <head>
@@ -29,6 +35,8 @@
     <!-- General Styles -->
     <link rel="stylesheet" href="../css/style.css">
 
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/pesquisa2.js"></script>
 
 </head>
 
@@ -42,7 +50,7 @@
 					<i class="far fa-times-circle show-nav-lateral"></i>
 					<img src="../assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
 					<figcaption class="roboto-medium text-center">
-						Admin <br><small class="roboto-condensed-light">Coordenador</small>
+					<br><?php echo "". $_SESSION['usuarioNome'];?></br> <br><small><?php echo "". $_SESSION['usuarioCargo'];?></small></br>
 					</figcaption>
 				</figure>
 				<div class="full-box nav-lateral-bar"></div>
@@ -85,18 +93,18 @@
 						<li>
 							<a href="#" class="nav-btn-submenu"><i class="far fa-address-card fa-fw"></i> &nbsp; Reservas <i class="fas fa-chevron-down"></i></a>
 							<ul>
-								<li>
+							<li>
 									<a href="../reserva/reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
 								</li>
 								<li>
-									<a href="../reserva/reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
+									<a href="../reserva/reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Histórico de reservas</a>
 								</li>
-								<li>
+								<!--<li>
 									<a href="../reserva/reserva-search.php"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar reservas</a>
 								</li>
 								<li>
 									<a href="../reserva/reserva-pend.php"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Reservas pendentes</a>
-								</li>
+								</li>-->
 							</ul>
 						</li>
 
@@ -112,7 +120,7 @@
                 <a href="#" class="float-left show-nav-lateral">
                     <i class="fas fa-exchange-alt"></i>
                 </a>
-                <a href="user-update.php">
+                <a href="../user/edit-perfil.php">
                     <i class="fas fa-user-cog"></i>
                 </a>
                 <a href="#" class="btn-exit-system">
@@ -141,152 +149,32 @@
                 </ul>
             </div>
             
-            <!--CONTENT-->
-            <div class="container-fluid">
-                <form class="form-neon" action="">
-                    <div class="container-fluid">
-                        <div class="row justify-content-md-center">
-                            <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                    <label for="inputSearch" class="bmd-label-floating">Digite o código ou nome da sala.</label>
-                                    <input type="text" class="form-control" name="busqueda-" id="inputSearch" maxlength="30">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <p class="text-center" style="margin-top: 40px;">
-                                    <button type="submit" class="btn btn-raised btn-info"><i class="fas fa-search"></i> &nbsp; BUSCAR</button>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            
-            <div class="container-fluid">
-                <form action="">
-                    <input type="hidden" name="eliminar-busqueda" value="eliminar">
-                    <div class="container-fluid">
-                        <div class="row justify-content-md-center">
-                            <div class="col-12 col-md-6">
-                                <p class="text-center" style="font-size: 20px;">
-                                    Resultados da busca <strong>“Buscar”</strong>
-                                </p>
-                            </div>
-                            <div class="col-12">
-                                <p class="text-center" style="margin-top: 20px;">
-                                    <button type="submit" class="btn btn-raised btn-danger"><i class="far fa-trash-alt"></i> &nbsp; Cancelar a busca</button>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+          
+        
 
         <!--CONTENT-->
-        <div class="container-fluid">
-            <div class="table-responsive">
-                <table class="table table-dark table-sm">
-                    <thead>
-                        <tr class="text-center roboto-medium">
-                            <th>#</th>
-                            <th>CÓDIGO</th>
-                            <th>NOME</th>
-                            <th>TIPO</th>
-                            <th>EDITAR</th>
-                            <th>EXCLUIR</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="text-center" >
-                            <td>1</td>
-                            <td>1001</td>
-                            <td>AUDI 1</td>
-                            <td>AUDITÓRIO</td>
-                            <td>
-                                <a href="sala-update.php" class="btn btn-success">
-                                    <i class="fas fa-sync-alt"></i> 
-                                </a>
-                            </td>
-                            <td>
-                                <form action="">
-                                    <button type="button" class="btn btn-warning">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr class="text-center" >
-                            <td>2</td>
-                            <td>1002</td>
-                            <td>AUDI 2</td>
-                            <td>AUDITÓRIO</td>
-                            <td>
-                                <a href="sala-update.php" class="btn btn-success">
-                                    <i class="fas fa-sync-alt"></i> 
-                                </a>
-                            </td>
-                            <td>
-                                <form action="">
-                                    <button type="button" class="btn btn-warning">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr class="text-center" >
-                            <td>3</td>
-                            <td>2001</td>
-                            <td>LAB 1</td>
-                            <td>LABORATÓRIO</td>
-                            <td>
-                                <a href="sala-update.php" class="btn btn-success">
-                                    <i class="fas fa-sync-alt"></i> 
-                                </a>
-                            </td>
-                            <td>
-                                <form action="">
-                                    <button type="button" class="btn btn-warning">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr class="text-center" >
-                            <td>4</td>
-                            <td>2002</td>
-                            <td>LAB 2</td>
-                            <td>LABORATÓRIO</td>
-                            <td>
-                                <a href="sala-update.php" class="btn btn-success">
-                                    <i class="fas fa-sync-alt"></i> 
-                                </a>
-                            </td>
-                            <td>
-                                <form action="">
-                                    <button type="button" class="btn btn-warning">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Anterior</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Proximo</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        <!-- Content -->
+			<div class="container-fluid">
+				<form class="form-neon" method="POST" id="form-pesquisa"  action="">
+					<div class="container-fluid">
+						<div class="row justify-content-md-center">
+							<div class="col-12 col-md-6">
+								<div class="form-group">
+									<label for="pesquisa" class="bmd-label-floating">O que você deseja buscar ?</label>
+									<input type="text" class="form-control" name="pesquisa" id="pesquisa" maxlength="30">
+								</div>
+							</div>
+							<div class="col-12">
+								<p class="text-center" style="margin-top: 40px;">
+									<button type="submit" name="enviar" value="Pesquisar" class="btn btn-raised btn-info"><i class="fas fa-search"></i> &nbsp; BUSCAR</button>
+								</p>
+							</div>
+						</div>
+					</div>
+					
+				</form>
+				<ul class="resultado">
+			</div>			
 </section>
 
     </main>

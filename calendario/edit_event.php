@@ -12,17 +12,19 @@ $data_start_conv = date("Y-m-d H:i:s", strtotime($data_start));
 $data_end = str_replace('/', '-', $dados['end']);
 $data_end_conv = date("Y-m-d H:i:s", strtotime($data_end));
 
-$query_event = "UPDATE reservas SET title=:title, details=:details, start=:start, end=:end, id_sala=:sala WHERE id=:id";
+$query_event = "UPDATE reservas SET title=:title, details=:details, start=:start, end=:end 
+    WHERE id=:id";
 
 $update_event = $conn->prepare($query_event);
 $update_event->bindParam(':title', $dados['title']);
-$insert_event->bindParam(':details', $dados['details']);
+$update_event->bindParam(':details', $dados['details']);
 $update_event->bindParam(':start', $data_start_conv);
 $update_event->bindParam(':end', $data_end_conv);
-$update_event->bindParam(':sala', $dados['sala']);
+//$update_event->bindParam(':sala', $dados['sala_ed']);
 $update_event->bindParam(':id', $dados['id']);
 
 if ($update_event->execute()) {
+
     $retorna = ['sit' => true, 'msg' => '<div class="alert alert-success" role="alert">Evento editado com sucesso!</div>'];
     $_SESSION['msg'] = '<div class="alert alert-success" role="alert">Evento editado com sucesso!</div>';
 } else {

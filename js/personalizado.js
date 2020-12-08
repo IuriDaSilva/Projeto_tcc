@@ -4,10 +4,20 @@ document.addEventListener('DOMContentLoaded', function () {
     var calendar = new FullCalendar.Calendar(calendarEl, {
         locale: 'pt-br',
         plugins: ['interaction', 'dayGrid'],
+        
         //defaultDate: '2019-04-12',
         editable: true,
         eventLimit: true,
         events: '../calendario/list_eventos.php',
+        eventTimeFormat: { // like '14:30:00'
+            hour: '2-digit',
+            minute: '2-digit',
+            meridiem: false
+
+            
+        },
+        
+        
         extraParams: function () {
             return {
                 cachebuster: new Date().valueOf()
@@ -21,15 +31,19 @@ document.addEventListener('DOMContentLoaded', function () {
             $('#visualizar #id').val(info.event.id);
             $('#visualizar #title').text(info.event.title);
             $('#visualizar #title').val(info.event.title);
-            $('#visualizar #details').text(info.event.details);
-            $('#visualizar #details').val(info.event.details);
+            $('#visualizar #details').text(info.event.extendedProps.details);
+            $('#visualizar #details').val(info.event.extendedProps.details);
+            $('#visualizar #sala').text(info.event.extendedProps.nome);
+            $('#visualizar #sala_ed').val(info.event.extendedProps.nome);
             $('#visualizar #start').text(info.event.start.toLocaleString());
             $('#visualizar #start').val(info.event.start.toLocaleString());
             $('#visualizar #end').text(info.event.end.toLocaleString());
             $('#visualizar #end').val(info.event.end.toLocaleString());
+            
         
             $('#visualizar').modal('show');
         },
+        
         selectable: true,
         select: function (info) {
             //alert('Início do evento: ' + info.start.toLocaleString());
@@ -37,10 +51,12 @@ document.addEventListener('DOMContentLoaded', function () {
             $('#cadastrar #end').val(info.end.toLocaleString());
             $('#cadastrar').modal('show');
         }
+    
     });
 
     calendar.render();
 });
+
 
 //Mascara para o campo data e hora
 function DataHora(evento, objeto) {

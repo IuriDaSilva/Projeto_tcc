@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -44,7 +48,7 @@
 					<i class="far fa-times-circle show-nav-lateral"></i>
 					<img src="../assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
 					<figcaption class="roboto-medium text-center">
-						Admin <br><small class="roboto-condensed-light">Coordenador</small>
+					<br><?php echo "". $_SESSION['usuarioNome'];?></br><br><small> <?php echo "". $_SESSION['usuarioCargo'];?></small>
 					</figcaption>
 				</figure>
 				<div class="full-box nav-lateral-bar"></div>
@@ -70,16 +74,16 @@
 						</li>
 
 						<li>
-							<a href="#" class="nav-btn-submenu"><i class="fas fa-store-alt fa-fw"></i> &nbsp; reservas <i class="fas fa-chevron-down"></i></a>
+						<a href="#" class="nav-btn-submenu"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Salas <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="../reserva/reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
+									<a href="../sala/sala-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova sala</a>
 								</li>
 								<li>
-									<a href="../reserva/reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
+									<a href="../sala/sala-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de salas</a>
 								</li>
 								<li>
-									<a href="../reserva/reserva-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar reservas</a>
+									<a href="../sala/sala-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar salas</a>
 								</li>
 							</ul>
 						</li>
@@ -88,17 +92,17 @@
 							<a href="#" class="nav-btn-submenu"><i class="far fa-address-card fa-fw"></i> &nbsp; Reservas <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
+									<a href="../reserva/reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
 								</li>
 								<li>
-									<a href="reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
+									<a href="../reserva/reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Histórico de reservas</a>
+								</li>
+								<!--<li>
+									<a href="../reserva/reserva-search.php"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar reservas</a>
 								</li>
 								<li>
-									<a href="reserva-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar reservas</a>
-								</li>
-								<li>
-									<a href="reserva-pend.php"><i class="far fa-id-card"></i> &nbsp; Reservas pendentes</a>
-								</li>
+									<a href="../reserva/reserva-pend.php"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Reservas pendentes</a>
+								</li>-->
 							</ul>
 						</li>
 
@@ -135,80 +139,25 @@
                         <a href="reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; NOVA RESERVA</a>
                     </li>
                     <li>
-                        <a class="active" href="reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE RESERVAS</a>
+                        <a class="active" href="reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; HISTÓRICO DE RESERVAS</a>
                     </li>
-                    <li>
+                  <!--  <li>
                         <a href="reserva-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR RESERVA</a>
                     </li>
                     <li>
                         <a href="reserva-pend.php"><i class="far fa-id-card"></i> &nbsp; RESERVAS PENDENTES</a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
             
             <!--CONTENT-->
             
-			 <div class="container-fluid">
-				<div class="table-responsive">
-					<table class="table table-dark table-sm">
-						<thead>
-							<tr class="text-center roboto-medium">
-								<th>ID</th>
-								<th>NOME RESERVA</th>
-								<th>NOME RESPONSAVEL</th>
-								<th>DESCRIÇÃO</th>
-								<th>DATA E HORA DO INICIO</th>
-								<th>DATA E HORA DO FINAL</th>
-								<th>EDITAR</th>
-								<th>EXCLUIR</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
-								require '../classes/Conexao.php';
-								require '../classes/Reserva.php';
-								$list_reserva = new Reserva();
-								$list_reserva_pgs = $list_reserva->listar();
-								//var_dump($list_reserva_pgs);
-
-								foreach ($list_reserva_pgs as $row_reserva) {
-									extract($row_reserva);?>
-									<tr class="text-center" >
-									<th><?php echo $row_reserva['id_reserva']; ?></th>
-									<td><?php echo $row_reserva['nome_reserva']; ?></td>
-									<td><?php echo $row_reserva['nome_resp']; ?></td>
-									<td><?php echo $row_reserva['descricao']; ?></td>
-									<td><?php echo $row_reserva['data_inicio']; ?></td>
-									<td><?php echo $row_reserva['data_final']; ?></td>
-										<td>
-											<?php echo "<a class='btn btn-success' href='reserva-update.php?id=". $id_reserva . "'>
-												<i class='fas fa-sync-alt'></i>	
-											</a>"?>
-										</td>
-										<td>
-										<?php echo "<a class='btn btn-warning btn-delete-usuario' href='reserva-delete.php?id=". $id_reserva ."'data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
-												<i class='far fa-trash-alt'></i>
-											</a>"?>
-										</td>
-									</tr> 
-								<?php }?>
-						</tbody>
-					</table>
+			<div class="container-fluid">
+					<div class="container-fluid form-neon">
+					<legend><i class="far fa-plus-square"></i> &nbsp; Agenda de reservas anteriores</legend>
+						<object class="container-fluid" type="text/php" data="../calendario/hist.php" width="1100" height="800">
+					</div>
 				</div>
-				<nav aria-label="Page navigation example">
-					<ul class="pagination justify-content-center">
-						<li class="page-item disabled">
-							<a class="page-link" href="#" tabindex="-1">Anterior</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item">
-							<a class="page-link" href="#">Proximo</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
         </section>
     </main>
     
