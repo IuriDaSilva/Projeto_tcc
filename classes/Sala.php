@@ -35,7 +35,7 @@
 
         //Cadastrar salas
             public function cadastrar(): bool {
-                var_dump($this->formDados);
+               // var_dump($this->formDados);
                 $this->conn = $this->connect();
 
                 $query_cad_salas = "INSERT INTO salas
@@ -51,7 +51,7 @@
             
             
                 $cad_sala->execute();
-                var_dump($cad_sala);
+                //var_dump($cad_sala);
                 if($cad_sala->rowCount()){
                     return true;
                 }else{

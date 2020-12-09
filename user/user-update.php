@@ -243,7 +243,7 @@
 								</div>
 							</div>
 						</fieldset>
-						<br><br><br>
+						<br>
 						<fieldset>
 							<legend><i class="fas fa-user-lock"></i> &nbsp; Dados da Conta</legend>
 							<div class="container-fluid">
@@ -260,7 +260,7 @@
 											<input type="email" class="form-control" name="usuario_email" id="usuario_email" value="<?php echo $email ?>">
 										</div>
 									</div>
-									<div class="col-12 col-md-6">
+									<!--<div class="col-12 col-md-6">
 										<div class="form-group">
 											<label for="usuario_senha_1" class="bmd-label-floating">Senha</label>
 											<input type="password" class="form-control" name="usuario_senha_1" id="usuario_senha_1" value="<?php echo $senha ?>">
@@ -271,11 +271,11 @@
 											<label for="usuario_senha_2" class="bmd-label-floating">Repetir senha</label>
 											<input type="password" class="form-control" name="usuario_senha_2" id="usuario_senha_2" >
 										</div>
-									</div>
+									</div>-->
 								</div>
 							</div>
 						</fieldset>
-						<br><br><br>
+					<br>
 						<fieldset>
 							<legend><i class="fas fa-medal"></i> &nbsp; Cargo</legend>
 							<div class="container-fluid">
@@ -294,9 +294,7 @@
 									</div>
 								</div>
 							</div>
-						</fieldset>
-						<br><br><br>
-						
+						</fieldset>						
 						<p class="text-center" style="margin-top: 40px;">
 							<button type="submit" class="btn btn-raised btn-success btn-sm" value="Editar" name="SendEditUsuario"><i class="fas fa-sync-alt"></i> &nbsp; ATUALIZAR</button>
 						</p>

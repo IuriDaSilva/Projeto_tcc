@@ -22,16 +22,16 @@ if(!empty($id)){
     $valor = $apagarContaPg->apagar();
     
     if($valor){
-        echo "<div class='alert alert-danger' role='alert'>Usuário apagado!</div>";
+        echo "<div class='alert alert-danger' role='alert'>Sala apagada!</div>";
         //$_SESSION['msg'] = "<p style='color: green;'>Conta a pagar apagada com sucesso!</p>";
         header("Location: sala-list.php");
     }else{
         echo "<div class='alert alert-danger' role='alert'>Nenhum usuário encontrado!</div>";
-        $_SESSION['msg'] =  "<p style='color: #ff0000;'>Erro: Conta a pagar não apagada!</p>";
+        $_SESSION['msg'] =  "<p style='color: #ff0000;'>Erro: Sala não apagada!</p>";
         header("Location: sala-list.php");
     }
     
 }else{
-    $_SESSION['msg'] =  "<p style='color: #ff0000;'>Erro: Conta a pagar não encontrada!</p>";
+    $_SESSION['msg'] =  "<p style='color: #ff0000;'>Erro: Sala não encontrada!</p>";
     header("Location: sala-list.php");
 }

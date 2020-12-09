@@ -166,7 +166,7 @@
 						<div class="row justify-content-md-center">
 							<div class="col-12 col-md-6">
 								<div class="form-group">
-									<label for="pesquisa" class="bmd-label-floating">O que você deseja buscar ?</label>
+									<label for="pesquisa" class="bmd-label-floating">Digite o nome do usuário que deseja buscar ?</label>
 									<input type="text" class="form-control" name="pesquisa" id="pesquisa" maxlength="30">
 								</div>
 							</div>

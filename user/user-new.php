@@ -232,7 +232,7 @@
 								</div>
 							</div>
 						</fieldset>
-						<br><br><br>
+						<br>
 						<fieldset>
 							<legend><i class="fas fa-user-lock"></i> &nbsp; Dados da Conta</legend>
 							<div class="container-fluid">
@@ -264,7 +264,7 @@
 								</div>
 							</div>
 						</fieldset>
-						<br><br><br>
+						<br><br>
 						<fieldset>
 							<legend><i class="fas fa-medal"></i> &nbsp; Cargo</legend>
 							<div class="container-fluid">
@@ -275,14 +275,9 @@
 										
 										<div class="form-group">
 											<select class="form-control" name="usuario_cargo">
-												<option value="" selected="" disabled="">Selecione uma opção</option>
-												<?php
-													$result_niveis_acessos = "SELECT * FROM cargos";
-													$resultado_niveis_acesso = mysqli_query($conn, $result_niveis_acessos);
-													while($row_niveis_acessos = mysqli_fetch_assoc($resultado_niveis_acesso)){ ?>
-														<option value="<?php echo $row_niveis_acessos['id']; ?>"><?php echo $row_niveis_acessos['nome']; ?></option> <?php
-													}
-												?>
+											<option value="" selected="" disabled="">Selecione uma opção</option>
+												<option value="Coordenador">Coordenador</option>
+												<option value="Professor">Professor</option>
 											</select>
 										</div>
 									</div>

@@ -164,15 +164,23 @@
 						$cadSala = new Sala();
 						$cadSala->formDados = $formDados;
 						$valor = $cadSala->cadastrar();
-						var_dump($valor);
-						if ($valor) {
-							echo 'Usuário cadastrado com sucesso!';
-							//$_SESSION['msg'] = "<p style='color: green;'> Conta a pagar cadastrada com sucesso! </p>";
-							//header("../user/user-new.php");
-						} else {
-							echo 'Usuário não cadastrado com sucesso!';
-							//$_SESSION['msg'] = "<p style='color: #ff0000;'> Erro: Conta a pagar não cadastrada com sucesso! </p>";
-							//header("../user/user-new.php");
+						//var_dump($valor);
+						if ($valor) {?>
+							<div class="alert alert-success alert-dismissible fade show" role="alert">
+								Usuário cadastrado com sucesso!
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							</div><?php
+						} else {?>
+							<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								Usuário não cadastrado com sucesso!
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							</div>
+
+							<?php
 						}
 					}
 				?>

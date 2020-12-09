@@ -36,8 +36,8 @@ class Usuario extends Conexao
         $this->conn = $this->connect();
         $query_usuario = "SELECT id_usuario, matricula, nome, cpf, telefone, email, endereco
                 FROM usuarios
-                ORDER BY id_usuario ASC
-                LIMIT 5";
+                ORDER BY id_usuario desc
+                LIMIT 10";
         $busca_usuario = $this->conn->prepare($query_usuario);
         $busca_usuario->execute();
         $retorno = $busca_usuario->fetchAll();

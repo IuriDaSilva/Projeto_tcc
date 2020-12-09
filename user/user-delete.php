@@ -22,7 +22,7 @@ if(!empty($id)){
     $valor = $apagarContaPg->apagar();
     
     if($valor){
-        $_SESSION['msg'] = "<p style='color: green;'>Conta a pagar apagada com sucesso!</p>";
+        $_SESSION['msg'] = "<p style='color: green;'>Usuário apagadp com sucesso!</p>";
         header("Location: user-list.php");
     }else{
         $_SESSION['msg'] =  "<p style='color: #ff0000;'>Erro: Conta a pagar não apagada!</p>";

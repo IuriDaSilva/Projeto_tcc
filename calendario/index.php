@@ -10,10 +10,24 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset='utf-8' />
+    <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>LABSERV</title>
+
+		<!-- Normalize V8.0.1 -->
+		<link rel="stylesheet" href="../css/normalize.css">
+
+		<!-- Bootstrap V4.3 -->
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
+
+		<!-- Bootstrap Material Design V4.0 -->
+		<link rel="stylesheet" href="../css/bootstrap-material-design.min.css">
+		
+		<!-- General Styles -->
+		<link rel="stylesheet" href="../css/style.css">
         <link href='../css/core/main.min.css' rel='stylesheet' />
         <link href='../css/daygrid/main.min.css' rel='stylesheet' />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        
         <link rel="stylesheet" href="../css/personalizado.css">
 
         <script src='../js/core/main.min.js'></script>
@@ -93,13 +107,13 @@ session_start();
                                     <label class="col-sm-2 col-form-label">Salas</label>
                                     <div class="col-sm-10">
                                         <select name="sala_ed" class="form-control" id="sala_ed">
-                                            <option value="">Selecione</option>			
-                                            <option style="color:#FFD700;" value="1">Audi 1</option>
-                                            <option style="color:#0071c5;" value="2">Audi 2</option>
-                                            <option style="color:#FF4500;" value="7">Audi 3</option>
-                                            <option style="color:#8B4513;" value="3">Lab 1</option>	
-                                            <option style="color:#1C1C1C;" value="4">Lab 2</option>
-                                            <option style="color:#436EEE;" value="6">Lab 3</option>
+                                            <option value="sala_ed">Selecione</option>			
+                                            <option value="1">Audi 1</option>
+                                            <option value="2">Audi 2</option>
+                                            <option value="7">Audi 3</option>
+                                            <option value="3">Lab 1</option>	
+                                            <option value="4">Lab 2</option>
+                                            <option value="6">Lab 3</option>
                                         </select>
                                     </div>
                                 </div>
@@ -117,11 +131,11 @@ session_start();
                                         <input type="text" name="end" class="form-control" id="end"  onkeypress="DataHora(event, this)">
                                     </div>
                                 </div>
-
+                                <br>
                                 <div class="form-group row">
                                     <div class="col-sm-10">
-                                        <button type="button" class="btn btn-primary btn-canc-edit">Cancelar</button>
-                                        <button type="submit" name="EditEvent" id="EditEvent" value="EditEvent" class="btn btn-warning">Salvar</button>                                    
+                                        <button type="button" class="btn btn-danger btn-canc-edit">Cancelar</button>
+                                        <button type="submit" name="EditEvent" id="EditEvent" value="EditEvent" class="btn btn-primary">Salvar</button>                                    
                                     </div>
                                 </div>
 
