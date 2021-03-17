@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         plugins: ['interaction', 'dayGrid'],
         
         defaultDate: '2020-11-01',
-        editable: true,
+       // editable: true,
         eventLimit: true,
         events: '../calendario/list_eventos.php',
         eventTimeFormat: { // like '14:30:00'

@@ -10,19 +10,29 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset='utf-8' />
-        <link href='../css/core/main.min.css' rel='stylesheet' />
-        <link href='../css/daygrid/main.min.css' rel='stylesheet' />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/personalizado.css">
+       <!-- Normalize V8.0.1 -->
+		<link rel="stylesheet" href="../css/normalize.css">
 
-        <script src='../js/core/main.min.js'></script>
-        <script src='../js/interaction/main.min.js'></script>
-        <script src='../js/daygrid/main.min.js'></script>
-        <script src='../js/core/locales/pt-br.js'></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- Bootstrap V4.3 -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+
+<!-- Bootstrap Material Design V4.0 -->
+<link rel="stylesheet" href="../css/bootstrap-material-design.min.css">
+
+<!-- General Styles -->
+<link rel="stylesheet" href="../css/style.css">
+<link href='../css/core/main.min.css' rel='stylesheet' />
+<link href='../css/daygrid/main.min.css' rel='stylesheet' />
+
+<link rel="stylesheet" href="../css/personalizado.css">
+
+<script src='../js/core/main.min.js'></script>
+<script src='../js/interaction/main.min.js'></script>
+<script src='../js/daygrid/main.min.js'></script>
+<script src='../js/core/locales/pt-br.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="../js/personalizadoH.js"></script>
     </head>
     <body>
@@ -65,7 +75,7 @@ session_start();
                                 <dt class="col-sm-3">Fim do evento</dt>
                                 <dd class="col-sm-9" id="end"></dd>
                             </dl>
-                            <button type="button" class="btn btn-primary btn-canc-vis">Cancelar</button>
+                            <button type="button" class="btn btn-primary"  data-dismiss="modal">Cancelar</button>
 
                            <!-- <a href="" id="cancel_vis" class="btn btn-warning">Voltar</a>-->
                         </div>

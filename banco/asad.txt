@@ -1,0 +1,7 @@
+Para realizar o cadastro de uma reserva o usuário deve selecionar a opção de reservas
+
+Depois de clicar na reserva o sistema vai apresentar uma tela com agenda das reservas 
+
+nesta tela vai conter a agenda com um calendario com as reservas já cadastradas no sistema
+
+Cada reserva será apresentada por essas barras azuis

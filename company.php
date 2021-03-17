@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	
+?>
 <!DOCTYPE php>
 <php lang="pt-br">
 <head>
@@ -44,7 +48,7 @@
                    <i class="far fa-times-circle show-nav-lateral"></i>
                    <img src="./assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
                    <figcaption class="roboto-medium text-center">
-                       Admin <br><small class="roboto-condensed-light">Coordenador</small>
+                   <br><?php echo "". $_SESSION['usuarioNome'];?></br> <br><small><?php echo "". $_SESSION['usuarioCargo'];?></small></br>
                    </figcaption>
                </figure>
                <div class="full-box nav-lateral-bar"></div>
@@ -85,22 +89,22 @@
                        </li>
 
                        <li>
-                           <a href="#" class="nav-btn-submenu"><i class="far fa-address-card fa-fw"></i> &nbsp; Reservas <i class="fas fa-chevron-down"></i></a>
-                           <ul>
-                               <li>
-                                   <a href="reserva/reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
-                               </li>
-                               <li>
-                                   <a href="reserva/reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de reservas</a>
-                               </li>
-                               <li>
-                                   <a href="reserva/reserva-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar reservas</a>
-                               </li>
-                               <li>
-                                   <a href="reserva/reserva-pend.php"><i class="far fa-id-card"></i> &nbsp; Reservas pendentes</a>
-                               </li>
-                           </ul>
-                       </li>
+								<a href="#" class="nav-btn-submenu"><i class="far fa-address-card fa-fw"></i> &nbsp; Reservas <i class="fas fa-chevron-down"></i></a>
+								<ul>
+								<li>
+									<a href="reserva/reserva-new.php"><i class="fas fa-plus fa-fw"></i> &nbsp; Nova reserva</a>
+								</li>
+								<li>
+									<a href="reserva/reserva-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Histórico de reservas</a>
+								</li>
+								<!--<li>
+									<a href="../reserva/reserva-search.php"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar reservas</a>
+								</li>
+								<li>
+									<a href="../reserva/reserva-pend.php"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Reservas pendentes</a>
+								</li>-->
+								</ul>
+							</li>
 
                        <li>
                            <a href="company.php"><i class="fas fa-info-circle"></i> &nbsp; Contato</a>

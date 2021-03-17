@@ -3,7 +3,7 @@
 	
 ?>
 <br>
-<a href="sair.php">Sair</a>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
